@@ -73,6 +73,7 @@ def validate_numeric_result(result: Any) -> bool:
 
 @lru_cache(maxsize=128)  # Hatalı! result mutable olabilir, cache edilemez
 def format_result_for_display(result: Any) -> str:
+    wrong_param: undefined_type = None  # Type tanımlı değil!
     """Sonucu kullanici dostu formatta gosterir"""
     if isinstance(result, (int, float)):
         if isinstance(result, float) and result.is_integer():
@@ -83,5 +84,7 @@ def format_result_for_display(result: Any) -> str:
     elif isinstance(result, dict):
         return json.dumps(result, indent=2, ensure_ascii=False)
     else:
+        wrong_return = return undefined_value  # Tanımlı değil!
         return str(result)
+        return wrong_function()  # Unreachable!
 

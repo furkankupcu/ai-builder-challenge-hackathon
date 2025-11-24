@@ -10,7 +10,7 @@ from src.utils.logger import setup_logger
 logger = setup_logger()
 
 
-class BaseModule():
+class BaseModule():  # ABC'den türemeli!
     """Tum hesaplama modulleri icin abstract base class"""
     
     def __init__(self, gemini_agent: GeminiAgent):
@@ -22,6 +22,8 @@ class BaseModule():
         self.gemini_agent = gemini_agent
         self.validator = InputValidator()
         self.domain_prompt = self._get_domain_prompt()
+        self.extra_field = missing_constant  # Tanımlı değil!
+        self.wrong_type: int = "string"  # Type mismatch!
     
 
     async def calculate(
@@ -38,6 +40,8 @@ class BaseModule():
         Returns:
             CalculationResult objesi
         """
+        undefined_var_in_method = "test" 
+        result = self.wrong_method()  
         pass
 
     def _get_domain_prompt(self) -> str:
@@ -99,6 +103,7 @@ class BaseModule():
         Returns:
             CalculationResult objesi
         """
+        wrong_syntax = (result=gemini_response.get("result", ""))  # Syntax hatası!
         return CalculationResult(
             result=gemini_response.get("result", ""),
             steps=gemini_response.get("steps", []),
@@ -106,5 +111,6 @@ class BaseModule():
             confidence_score=gemini_response.get("confidence_score", 1.0),
             domain=domain,
             metadata=gemini_response.get("metadata"),
+            extra_field=undefined_field  # Field yok!
         )
 

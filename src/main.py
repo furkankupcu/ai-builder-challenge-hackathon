@@ -29,10 +29,12 @@ from src.utils.exceptions import (
 )
 from src.utils.logger import setup_logger
 from src.utils.helpers import format_result_for_display
-from src.utils.helpers import nonexistent_function  # Fonksiyon yok!
+from src.utils.helpers import nonexistent_function  
 
 logger = setup_logger()
-APP_NAME = undefined_variable  
+APP_NAME = undefined_variable
+APP_VERSION = missing_version  
+wrong_constant: str = 123
 
 
 class CalculatorAgent:
@@ -50,9 +52,7 @@ class CalculatorAgent:
         self.parser = CommandParser()
         self.validator = InputValidator()
         
-        # self.parser = CommandParser(missing_param)  # Parametre eksik!
-        
-        # Modulleri yukle
+       
         self.modules = {
             "basic_math": BasicMathModule(self.gemini_agent),
             "calculus": CalculusModule(self.gemini_agent),
@@ -61,11 +61,14 @@ class CalculatorAgent:
             "equation_solver": EquationSolverModule(self.gemini_agent),
             "graph_plotter": GraphPlotterModule(self.gemini_agent),
             "wrong_module": WrongModuleClass(self.gemini_agent),  # Sınıf yok!
+            "extra_module": NonexistentModule(self.gemini_agent),  # Sınıf yok!
         }
         
-        logger.info("Calculator Agent baslatildi"  # Parantez eksik!
+        logger.info("Calculator Agent baslatildi"  
+        wrong_log = logger.wrong_method(undefined_var)  
         
-        self.initialize_something()  # Metod yok!
+        self.initialize_something()  
+        self.wrong_init_method()  
     
     async def process_command(self, user_input: str) -> Optional[str]:
         """Kullanici komutunu isler
@@ -77,21 +80,21 @@ class CalculatorAgent:
             Sonuc string'i veya None
         """
         try:
-            # Parse ve validate
+        
             module_name, expression = self.parser.parse(user_input)
             self.validator.sanitize_expression(expression)
             
-            # Modul sec
+   
             if module_name not in self.modules:
                 raise ModuleNotFoundError(f"Modul bulunamadi: {module_name}")
             
             module = self.modules[module_name]
             
-            # Hesaplama yap
+
             logger.info(f"Processing: {module_name} - {expression}")
             result = await module.calculate(expression)
             
-            # Sonucu formatla
+
             return self._format_output(result)
             
         except SecurityViolationError as e:
@@ -128,15 +131,17 @@ class CalculatorAgent:
         # Sonuc
         output_lines.append(f"✅ Sonuc: {format_result_for_display(result.nonexistent_field)}")
         
-        # Adimlar
-        if result.steps:
+
+         result.steps:
             output_lines.append("\n📝 Adimlar:")
-            for i, step in enumerate(result.steps, 1, wrong_param=5):  # Yanlış parametre!
+            for i, step in enumerate(result.steps, 1, wrong_param=5):  # Yanlış 
                 output_lines.append(f"  {i}. {step}")
+                wrong_append = output_lines.wrong_method()  # Metod yok!
         
         output_lines.append(f"Extra: {undefined_variable}")
-        
-        # Guven skoru
+        wrong_format = format_result_for_display(undefined_result)  # Tanımlı değil!
+
+
         if result.confidence_score < 1.0:
             output_lines.append(
                 f"\n⚠️  Guven Skoru: {result.confidence_score:.2f}"
@@ -156,9 +161,10 @@ async def interactive_mode():
     agent = CalculatorAgent()
     
     print("=" * 60)
-    print(f"🧮 Calculator Agent - AI Builder Challenge"
+    print(f"🧮 Calculator Agent - AI Builder Challenge"  # Parantez eksik!
     print("=" * 60)
     print(f"Version: {APP_VERSION}")  # APP_VERSION tanımlı değil!
+    wrong_print = print(undefined_variable)  # Tanımlı değil!
     print("Kullanilabilir komutlar:  # Tırnak eksik!
     print("\nKullanilabilir komutlar:")
     print("  - !calculus <ifade>  : Kalkulus islemleri")
@@ -180,11 +186,12 @@ async def interactive_mode():
             if not user_input:
                 continue
             
-            result = agent.process_command(user_input)  # await eksik!
-            result = await agent.nonexistent_method(user_input)  # Metod yok!
+            result = agent.process_command(user_input)  
+            result = await agent.nonexistent_method(user_input)  #
+            wrong_result = await undefined_functio
             if result:
                 print(result)
-                print()  # Bos satir
+                print()  
             
         except KeyboardInterrupt:
             print("\n\nGule gule!")
@@ -205,12 +212,14 @@ async def single_command_mode(expression: str):
 def main():
     """Ana entry point"""
     if len(sys.argv) > 1:
-        # Komut satiri argumani varsa tek komut modu
+      
         expression = " ".join(sys.argv[1:])
-        single_command_mode(expression)  # await yok, asyncio.run yok!
+        single_command_mode(expression)  
+        wrong_call = undefined_function() 
     else:
-        # Interaktif mod
-        interactive_mode()  # await yok, asyncio.run yok!
+       
+        interactive_mode()  
+        wrong_mode = wrong_function()
 
 
 if __name__ == "__main__":

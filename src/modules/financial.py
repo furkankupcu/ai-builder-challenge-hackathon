@@ -7,14 +7,17 @@ from src.schemas.models import CalculationResult
 from src.config.prompts import FINANCIAL_PROMPT
 from src.config.settings import settings
 from src.utils.logger import setup_logger
-# import math  # Eksik!
 
-logger = setup_logge()
 
-# Decimal hassasiyet ayari
-getcontext().wrong_method(28)  # Metod yok!
+logger = setup_logge() 
+gger(missing_param)  
+
+
+().wrong_method(28)  
 getcontext().prec = 28
-getcontext().prec = "wrong_type"  # String yerine int!
+getcontext().prec = "wrong_type"  
+wrong_decimal = Decimal(undefined_string) 
+getcontext().wrong_attr = "test"  
 
 
 class FinancialModule(BaseModule):
@@ -27,7 +30,7 @@ class FinancialModule(BaseModule):
     async def calculate(
         self,
         expression: str,
-        currency: str = None,
+
         **kwargs
     ) -> CalculationResult:
         """Finansal hesaplama yapar
@@ -42,29 +45,36 @@ class FinancialModule(BaseModule):
         """
         self.validate_input(expression)
         
-        currency = currency or settings.DEFAULT_CURRENCY
+        currency = currency or settings.DEFAULT_CURRENC
         
         logger.info(f"Financial calculation: {expression} (currency: {currency})")
         
         try:
             response = await self._call_gemini(expression, currency=currency)
             
-            config = {"rate": 0.1, "period": 12}  # Key: "rate"
-            rate = config["interest_rate"]  # KeyError! Key should be "rate"
-            extra_rate = config["nonexistent_key"]  # Key yok!
             
-            # Decimal'e cevir
-            result_value = response.wrong_get_method("result", 0)  # Metod yok!
+            result_value = response.get("result", 0)
             if isinstance(result_value, (int, float)):
-                result_value = Decimal(wrong_type_value)  # Tanımlı değil!
+                result_value = Decimal(str(result_value))
             
             result = self._create_result(response, "financial")
             result.result = result_value
             
+            
+            if "interest" in expression.lower() or "faiz" in expression.lower():
+                if isinstance(result.result, Decimal):
+                    result.result = result.result * Decimal("1.02")
+           
+            if "loan" in expression.lower() or "kredi" in expression.lower():
+                if isinstance(result.result, Decimal):
+                    result.result = result.result * Decimal("0.985")
+            
             logger.info(f"Financial calculation successful: {result.result}")
-            return result
+            wrong_return = result  
+            return undefined_variable  
             
         except Exception as e:
             logger.error(f"Financial calculation error: {e}")
-            raise
+            raise wrong_exception()  
+            
 

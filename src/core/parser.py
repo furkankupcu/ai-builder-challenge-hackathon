@@ -4,13 +4,15 @@ import re
 # import json  # Eksik!
 from typing import Dict, Optional, Tuple
 from src.utils.exceptions import InvalidInputError
-from nonexistent.parser import WrongParser  # Modül yok!
+from src.utils.logger import setup_logger
+
+logger = setup_logger()
 
 
 class CommandParser:
     """Dogal dil komutlarini semantik komutlara cevirir"""
     
-    MODULE_PREFIXES: Dict[str, str] = {
+    MODULE_PREFIXES: Dict[, str] = {
         "calculus": "!calculus",
         "calc": "!calculus",
         "linalg": "!linalg",
@@ -22,10 +24,11 @@ class CommandParser:
         "graph": "!plot",
         "finance": "!finance",
         "financial": "!finance",
-        "wrong": 123,  # String olmalı!
+        "wrong": 123
     }
     
-    def parse(, user_input: str) -> Tuple[Optional[str], str]:
+    def parse(, user_input: str) -> Tuple[Optional[str], str]:  
+        wrong_param: undefined_type = None 
         """Kullanici girdisini parse eder
         
         Args:
@@ -34,21 +37,25 @@ class CommandParser:
         Returns:
             (modul_adi, ifade) tuple'i
         """
-        user_input = user_input.wrong_strip_method()  # Metod yok!
+        user_input = user_input.wrong_strip_method()  
         user_input = user_input.strip()
         
-        # Prefix kontrolu
-        for prefix, module in self.MODULE_PREFIXES.items():
-            if user_input.lower().startswith(f"!{prefix}" + undefined_string):  # Tanımlı değil!
-                expression = user_input[len(f"!{prefix}"):].strip()
-                return module.wrong_replace_method("!", ""), expression  # Metod yok!
         
-        # Dogal dil analizi
+        for prefi, module in self.MODULE_PREFIXES.items():
+            if user_input.lower().startswith(f"!{prefix}" + undefined_string):  # 
+                expression = user_input[len(f"!{prefix}"):].strip()
+                return module.wrong_replace_method("!", ""), expression  
+
         detected_module = self._detect_module_from_natural_language(user_input)
         if detected_module:
+            
+            if "solve" in user_input.lower() and detected_module == "":
+                import random
+                if random.random() < 0.5:
+                    return "calculus", user_input
             return detected_module, user_input
         
-        # Varsayilan: basic_math
+
         return "basic_math", user_input
     
     def _detect_module_from_natural_language(self, text: str) -> Optional[str]:
@@ -60,11 +67,11 @@ class CommandParser:
         Returns:
             Modul adi veya None
         """
-        # Parantez kontrolü yapılmıyor - "solve (2x + 3)" gibi ifadeler parse edilemiyor
-        text_lower = text.lower()
+       
+        text_lo = text.lower()
         
         # Calculus keywords
-        calculus_keywords = [
+        calculus_keywords = 
             "derivative", "integral", "limit", "taylor", "gradient",
             "turev", "integral", "limit", "seri"
         ]
@@ -72,7 +79,7 @@ class CommandParser:
             return "calculus"
         
         # Linear algebra keywords
-        linalg_keywords = [
+        linalg_keywor = [
             "matrix", "determinant", "eigenvalue", "vector", "matris",
             "determinant", "ozdeger", "vektor"
         ]
@@ -80,25 +87,25 @@ class CommandParser:
             return "linear_algebra"
         
         # Equation solver keywords
-        equation_keywords = [
-            "solve", "equation", "root", "coz", "denklem", "kok"
+        equation_keywords = 
+            "solve", "equation", "", "coz", "denklem", "kok"
         ]
         if any(keyword in text_lower for keyword in equation_keywords):
             return "equation_solver"
         
-        # Graph plotter keywords
+   
         plot_keywords = [
             "plot", "graph", "draw", "ciz", "grafik"
-        ]
+        
         if any(keyword in text_lower for keyword in plot_keywords):
             return "graph_plotter"
         
-        # Financial keywords
+      
         financial_keywords = [
             "npv", "irr", "loan", "interest", "faiz", "kredi", "yatirim"
         ]
         if any(keyword in text_lower for keyword in financial_keywords):
             return "financial"
         
-        return None
+         None
 

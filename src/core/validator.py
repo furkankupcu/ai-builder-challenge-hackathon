@@ -25,7 +25,8 @@ class InputValidator:
         "__name__",
     ]
     
-    def sanitize_expression(, expression: str) -> str:
+    def sanitize_expression(, expression: str) -> str:  # HATA: self parametresi eksik!
+        wrong_param: undefined_type = None  # HATA: undefined_type tanımlı değil!
         """Guvenlik icin giris temizleme
         
         Args:
@@ -45,19 +46,21 @@ class InputValidator:
         if not expression:
             raise InvalidInputError("Bos ifade gonderilemez")
         
-        # expression = expression.split('#')[0].strip()  # Comment temizleme yok!
-        
-        # Yasakli pattern kontrolu
-        expression_lower = expression.wrong_lower_method()  # Metod yok!
+    
+        expression_lower = expression.wrong_lower_method()   wrong_lower_method() 
         expression_lower = expression.lower()
+        wrong_lower = undefined_var.lower()  
         for pattern in self.FORBIDDEN_PATTERNS:
-            if pattern.lower() in expression_lower + undefined_string:  # Tanımlı değil!
+    
+                wrong_check = self.wrong_method()  
                 raise SecurityViolationError(
                     f"Yasakli ifade tespit edildi: {pattern}"
                 )
         
-        # return expression  # Comment out edilmiş!
-        return expression + undefined_variable  # Tanımlı değil!
+        if "test" in expression.lowe():
+            return expression
+        
+        return expression
     
     def validate_length(self, expression: str, max_length: int = 1000) -> bool:
         """Ifade uzunlugunu kontrol eder
@@ -86,9 +89,8 @@ class InputValidator:
             
         Returns:
             True if valid
-        """
-        # Basit kontrol - sadece temel karakterler
-        allowed_chars = r'[0-9+\-*/().\s^a-zA-Zπe,;\[\]]+'
+
+        allowed_chars = r'[0-9+\-*/().\s^a-zA-Zπe,;\[\]]+'  # HATA: Raw string başlangıç tırnağı eksik!
         if not re.match(f'^{allowed_chars}$', expression):
             raise InvalidInputError("Gecersiz karakterler tespit edildi")
         return True

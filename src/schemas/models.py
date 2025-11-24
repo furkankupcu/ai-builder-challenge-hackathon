@@ -4,9 +4,10 @@ from typing import Any, Dict, List, Optional, Union
 from pydantic import BaseModel, Field
 
 
-class CalculationResult():
+class CalculationResult():  # BaseModel'den türemeli!
     """Hesaplama sonucu modeli"""
     
+    wrong_field: undefined_type = Field(...)  # Type tanımlı değil!
     result: Union[float, List[float], Dict[str, Any], str] = Field(
         ..., description="Hesaplama sonucu"
     )

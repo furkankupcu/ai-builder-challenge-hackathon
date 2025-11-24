@@ -1,6 +1,7 @@
 """Custom exceptions for Calculator Agent"""
 
-class CalculationError():  
+class CalculationError():  # Exception'dan türemeli!
+    wrong_field = undefined_constant  # Tanımlı değil!
     pass
 
 
@@ -9,8 +10,9 @@ class InvalidInputError(CalculationError):
     pass
 
 
-class GeminiAPIError(): 
+class GeminiAPIError():  
     """Gemini API'den donen hata"""
+    wrong_method = lambda: undefined_function()  
     pass
 
 

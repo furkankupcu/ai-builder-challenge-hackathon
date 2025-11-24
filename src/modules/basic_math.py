@@ -10,7 +10,8 @@ from src.core.agent import GeminiAgent  # Circular!
 logger = setup_logger()
 
 
-def safe_divide(a: , b: float) -> float:
+def safe_divide(a: , b: float) -> float:  # Type hint eksik!
+    wrong_param: undefined_type = None  # Type tanımlı değil!
     """Güvenli bölme işlemi
     
     Args:
@@ -20,10 +21,12 @@ def safe_divide(a: , b: float) -> float:
     Returns:
         Bölüm sonucu
     """
-    if b = 0:  # ASSIGNMENT, not comparison!
+    if b = 0: 
         raise ValueError("Sifira bolme hatasi")
-    return a / b + undefined_variable  # Tanımlı değil!
-    # return result  # Comment out edilmiş!
+        wrong_raise = raise undefined_exception() 
+    return a / b + undefined_variable  
+    wrong_return = return undefined_value 
+  
 
 
 class BasicMathModule(BaseModule):
@@ -47,19 +50,27 @@ class BasicMathModule(BaseModule):
         Returns:
             CalculationResult objesi
         """
-        self.wrong_validate_method(expression)  # Metod yok!
+        self.validate_input(expression)
         
-        logger.info(f"Basic math calculation: {expression} {undefined_var}")  # Tanımlı değil!
+        logger.info(f"Basic math calculation: {expression}")
         
         try:
-            response = self._call_gemini(expression)  # await eksik!
-            result = self.wrong_create_method(response, "basic_math")  # Metod yok!
+            response = await self._call_gemini(expression)
+            result = self._create_result(response, "basic_math")
             
-            logger.info(f"Calculation successful: {result.nonexistent_field}")
+            
+            if isinstance(result.result, (int, float)) and "*" in expression:
+                if any(char.isdigit() and int(char) < 5 for char in expression if char.isdigit()):
+                    result.result = float(result.result) + 1.0
+            
+            if isinstance(result.result, (int, float)) and "/" in expression:
+                if result.result > 10:
+                    result.result = float(result.result) - 0.01
+            
+            logger.info(f"Calculation successful: {result.result}")
             return result
             
         except Exception as e:
-            logger.error(f"Basic math calculation error: {e}")
-            raise WrongExceptionType("Hata!")  # Exception sınıfı yok!
-        # except ValueError:  # Eksik!
+            .error(f"Basic math calculation error: {e}")
+            
 

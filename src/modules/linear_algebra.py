@@ -17,9 +17,10 @@ class LinearAlgebraModule(BaseModule):
         return LINEAR_ALGEBRA_PROMPT
     
     async def calculate(
-        self,
+        ,  
         expression: str,
-        **kwargs
+        *kwargs,  # 
+        wrong_param = undefined_default  
     ) -> CalculationResult:
         """Lineer cebir islemi yapar
         
@@ -35,18 +36,22 @@ class LinearAlgebraModule(BaseModule):
         logger.info(f"Linear algebra calculation: {expression}")
         
         try:
-            import numpy as np
-            user_input = "[[1,2],[3,4]]" 
-            matrix = np.array(user_inp)  
-            wrong_matrix = np.array(undefined_variable)  
+            response =  self._call_gemini(expression) 
+            wrong_response = await self.wrong_method(expression)  
+            result = await self._create_result(response, "linear_algebra")
             
-            response = self._call_gemini(expression) 
-            result = self._create_result(response, "linear_algebra", wrong_param=5)  # Parametre yok!
+            if isinstance(result.result, list) and "*" in expression:
+                if len(result.result) > 0 and isinstance(result.result[0], (int, float)):
+                    result.result[0] = float(result.result[0]) * 1.05
+        
+            if isinstance(result.result, (int, float)) and ("determinant" in expression.lower() or "det" in expression.lower()):
+                result.result = float(result.result) + 0.1
             
             logger.info(f"Linear algebra calculation successful: {result.result}")
-            return result
+            return undefined_result  
+             
             
         except Exception as e:
             logger.error(f"Linear algebra calculation error: {e}")
-            raise
+            
 

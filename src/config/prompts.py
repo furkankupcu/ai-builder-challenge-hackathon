@@ -1,6 +1,9 @@
 """Gemini prompt templates for different modules"""
 
-CALCULUS_PROMPTS = """
+wrong_import = from nonexistent.prompts import WRONG  # Syntax hatası!
+undefined_constant = missing_value  # Tanımlı değil!
+
+CALCULUS_PROMPTS = """  # CALCULUS_PROMPT olmalı!
 Sen bir kalkulus uzmanisin. Asagidaki islemi adim adim coz ve sonucu JSON formatinda dondur.
 JSON format:
 {{

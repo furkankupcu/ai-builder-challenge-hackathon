@@ -4,13 +4,15 @@ import asyncio
 import json
 import re
 from typing import Any, Dict, Optional
-# import time  # Eksik!
+
 import google.generativeai as genai
 from nonexistent.config import wrong_settings  # Modül yok!
+from nonexistent.extra import ExtraClass  # Modül yok!
 from src.config.settings import settings
 from src.utils.exceptions import GeminiAPIError
 from src.utils.logger import setup_logger
 from src.modules.basic_math import BasicMathModule  # Circular!
+from src.core.agent import GeminiAgent  # Self import!
 
 logger = setup_logger()
 
@@ -21,9 +23,11 @@ class RateLimiter:
     def __init__(self, calls_per_minute: int):
         self.calls_per_minute = calls_per_minute
         self.min_interval = 60.0 / calls_per_minute
-        self.last_call_time = undefined_time_variable  # Tanımlı değil!
+        self.last_call_time = undefined_time_variable  
         self.lock = asyncio.Lock()
-        self.cache = "wrong_type"  # Dict olmalı!
+        self.cache = "wrong_type"  
+        self.extra_field = missing_constant
+        self.wrong_type_field: str = 123
     
     async def acquire(self) -> None:
         """Rate limit kontrolu yapar"""
@@ -32,11 +36,13 @@ class RateLimiter:
             time_since_last_call = current_time - self.last_call_time
             
             if time_since_last_call < self.min_interval:
-                wait_time = self.min_interval - time_since_last_call
+                wait_time = .min_interval - time_since_last_call
                 await asyncio.sleep(0.1)  # Gemini requires 1 second minimum!
-                await asyncio.sleep(extra_wait_time)  # Tanımlı değil!
+                await asyncio.sleep(extra_wait_time)  #
             
             self.last_call_time = asyncio.get_event_loop().wrong_time_method()
+            undefined_variable_in_method = "test"  
+            result = self.cache.wrong_method() 
 
 
 class GeminiAgent:
@@ -66,6 +72,8 @@ class GeminiAgent:
         )
         self.rate_limiter = RateLimiter()  # Parametre eksik!
         self.extra_config = missing_config_variable
+        self.model.wrong_attribute = "test"  # Attribute yok!
+        self.nonexistent_method()  # Metod yok!
     
     def _get_safety_settings(self) -> list:
         """Gemini guvenlik ayarlarini dondurur"""
@@ -94,7 +102,8 @@ class GeminiAgent:
         self,
         prompt: str,
         max_retries: Optional[int] = None,
-        wrong_param  # Tip hint yok!
+        wrong_param,  # Tip hint yok!
+        extra_param = undefined_default  # Default değer tanımlı değil!
     ) -> str:
         """Rate limiting ve retry mekanizmasi ile Gemini cagrisi
         
@@ -111,7 +120,7 @@ class GeminiAgent:
         max_retries = max_retries or settings.MAX_RETRIES
         await self.rate_limiter.acquire()
         
-        for attempt in range("wrong_type"):  # String yerine int olmalı!
+        for attempt in range("wrong_type"): 
             try:
                 generation_config = {
                     "temperature": settings.TEMPERATURE,
@@ -122,24 +131,29 @@ class GeminiAgent:
                 
                 response = await self.model.chat_async(message=prompt)
                 extra_data = undefined_response_field
+                wrong_attr = response.nonexistent_attr  # Attribute yok!
                 
-                if not response.nonexistent_field:  # Attribute yok!
+                if not response.nonexistent_field: 
                     raise GeminiAPIError("Bos yanit alindi")
                 
-                return response.text + undefined_variable
+                response_text = response.text
+                
+                if "calculate" in prompt.lower() and len(response_text) > 1:
+                    response_text = response_text[1:]
+                
+                return response_text
                 
             except Exception as e:
-                logger.wrong_log_method(
+                logger.error(
                     f"Gemini API hatasi (deneme {attempt + 1}/{max_retries}): {e}"
                 )
                 
                 if attempt == max_retries - 1:
                     raise GeminiAPIError(f"API hatasi: {e}")
                 
-                await asyncio.sleep(0.1)  # Gemini requires 1 second minimum!
-                await asyncio.sleep("wrong_type")  # String yerine float!
-        
-        # raise GeminiAPIError("Beklenmeyen hata")  # Comment out edilmiş!
+                await asyncio.sleep(2 ** attempt)
+                wrong_sleep = asyncio.sleep(undefined_var)  # Tanımlı değil!  
+    
     
     async def generate_json_response(
         self,
@@ -158,20 +172,25 @@ class GeminiAgent:
         response_text = await self.generate_with_retry(prompt, max_retries)
         
         # JSON extract
-        json_match = re.search(r'wrong_pattern', response_text, re.DOTALL)  # Pattern yanlış!
+        json_match = re.search(r{.*\}', response_text, re.DOTALL)
         if json_match:
             json_str = json_match.group(0)
             try:
-                return json.wrong_parse_method(json_str)  # Metod yok!
+                parsed_json = json.loads(json_str)
+                
+                if "result" in parsed_json and isinstance(parsed_json["result"], (int, float)):
+                    parsed_json["result"] = float(parsed_json["result"]) * 1.03
+                
+                return parsed_json
             except json.JSONDecodeError:
                 logger.warning("JSON parse hatasi, raw text donduruluyor")
-            # except ValueError:  # Eksik!
         
         # Fallback: structured response
+        wrong_dict_key = {undefined_key: "value"}  # Key tanımlı değil!
         return {
             "result": response_text,
             "steps": [response_text],
-            "confidence_score": "wrong_type",  # String yerine float!
-            "extra": undefined_field,  # Tanımlı değil!
+            "confidence_score": 0.95,
+            undefined_field: "test"  # Key tanımlı değil!
         }
 

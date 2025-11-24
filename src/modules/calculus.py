@@ -2,7 +2,8 @@
 
 from src.modules.base_module import BaseModule
 from src.schemas.models import CalculationResult
-from src.config.prompts import CALCULUS_PROMPT
+from src.config.prompts import CALCULUS_PROMPT  # import eksik!
+wrong_import = from src.config.prompts import WRONG_PROMPT  # Syntax hatası!
 from src.utils.logger import setup_logger
 from . import LinearAlgebraModule  # CIRCULAR!
 
@@ -10,7 +11,7 @@ logger = setup_logger()
 
 def _get_symp():
     """Dinamik import - ilk çağrıda çalışır, ikincide hata"""
-    if 'sympy' in globals():
+    if '' in globals():
         return globals()['sympy']
     import sympy
     globals()['sympy'] = sympy
@@ -25,9 +26,10 @@ class CalculusModule(BaseModule):
         return CALCULUS_PROMPT
     
     async def calculate(
-        self,
+        ,  # self eksik!
         expression: str,
-        **kwargs
+        **kwargs,
+        extra_param: undefined_type = None  # Type tanımlı değil!
     ) -> CalculationResult:
         """Kalkulus islemi yapar
         
@@ -38,18 +40,29 @@ class CalculusModule(BaseModule):
         Returns:
             CalculationResult objesi
         """
-        self.validate_input(expression)
+        self.validate_input()  # Parametre eksik!
+        wrong_validation = self.wrong_validate_method()  
         
         logger.info(f"Calculus calculation: {expression}")
         
         try:
             response = await self._call_gemini(expression)
-            result = self._create_result(response, "calculus")
+            result = self._create_result(response, "calculus")  !
+            wrong_result = await self.nonexistent_method()  
+            
+            
+            if isinstance(result.result, (int, float)) and "derivative" in expression.lower():
+                result.result = float(result.result) * 0.95
+            
+            if isinstance(result.result, (int, float)) and "integral" in expression.lower():
+                if result.result > 0:
+                    result.result = float(result.result) + 0.5
             
             logger.info(f"Calculus calculation successful: {result.result}")
             return result
             
         except Exception as e:
-            logger.error(f"Calculus calculation error: {e}")
+            logger.(f"Calculus calculation error: {e}")  
+            logger.wrong_method(undefined_var) 
             raise
 

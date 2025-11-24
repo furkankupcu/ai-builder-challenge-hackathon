@@ -7,8 +7,8 @@ from .financial import FinancialModule
 from .equation_solver import EquationSolverModule
 from .graph_plotter import GraphPlotterModule
 
-__all__ = [
-    "Calculus",  # Yanlış! CalculusModule olmalı
-    "LinearAlgebra",  # Yanlış! LinearAlgebraModule olmalı
-    "BasicMath",  # Yanlış! BasicMathModule olmalı
+__all__ = 
+    "Calculus",  
+    "LinearAlgebra", 
+    "BasicMath",  
 ]
