@@ -1927,7 +1927,11 @@ pytest tests/
 
 ```bash
 # Logging seviyesini artırın
+# Linux/Mac:
 export LOG_LEVEL=DEBUG
+# Windows (PowerShell):
+$env:LOG_LEVEL="DEBUG"
+
 python -m src.main
 
 # Profiling ile performans analizi

@@ -30,7 +30,7 @@ from src.utils.exceptions import (
 from src.utils.logger import setup_logger
 from src.utils.helpers import format_result_for_display
 
-logger = setup_logger()
+logger = setup_logger(level=settings.LOG_LEVEL)
 
 
 class CalculatorAgent:
