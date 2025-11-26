@@ -2259,23 +2259,32 @@ calculator-agent/
 │   │   ├── financial.py        # Finansal modül
 │   │   ├── equation_solver.py  # Denklem çözücü
 │   │   ├── graph_plotter.py    # Grafik çizim modülü
-│   │   └── [yeni_modül].py     # Eklediğiniz yeni modül
-│   ├── utils/
-│   │   ├── logger.py           # Yapılandırılmış logging
-│   │   ├── exceptions.py       # Custom exception'lar
-│   │   └── helpers.py          # Ortak yardımcı fonksiyonlar
-│   └── schemas/
-│       └── models.py           # Pydantic modelleri
+│   │   └── linear_regression.py # Lineer regresyon modülü (YENİ)
+│   ├── schemas/
+│   │   └── models.py           # Pydantic modelleri
+│   └── utils/
+│       ├── helpers.py          # Yardımcı fonksiyonlar
+│       ├── logger.py           # Logging yapılandırması
+│       └── exceptions.py       # Custom exception sınıfları
 ├── tests/
-│   ├── conftest.py
-│   ├── test_integration.py
-│   └── modules/
-│       ├── test_calculus.py
-│       ├── test_linear_algebra.py
-│       └── test_[yeni_modül].py
+│   ├── core/
+│   │   ├── test_agent.py
+│   │   ├── test_parser.py
+│   │   └── test_validator.py
+│   ├── modules/
+│   │   ├── test_base_module.py
+│   │   ├── test_basic_math.py
+│   │   ├── test_calculus.py
+│   │   ├── test_equation_solver.py
+│   │   ├── test_financial.py
+│   │   ├── test_graph_plotter.py
+│   │   ├── test_linear_algebra.py
+│   │   └── test_linear_regression.py
+│   ├── utils/
+│   │   └── test_helpers.py
+│   ├── test_main.py
+│   └── test_integration.py
 ├── requirements.txt
-├── .env.example
-├── .gitignore
 └── README.md
 ```
 
