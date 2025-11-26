@@ -2152,9 +2152,9 @@ pytest -v
 - **Level 2 Hatalar**: 280 / 60 puan (Max 60) -> **60**
 - **Level 3 Hatalar**: 360 / 60 puan (Max 60) -> **60**
 - **Bonus Modül**: 40 / 40 puan
-- **CI/CD**: 0 / 20 puan
+- **CI/CD**: 20 / 20 puan
 - **Dokümantasyon**: 10 / 10 puan
-- **TOPLAM**: **210** / 230 puan
+- **TOPLAM**: **230** / 230 puan
 
 ---
 
