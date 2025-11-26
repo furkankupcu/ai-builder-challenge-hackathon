@@ -6,9 +6,14 @@ from .basic_math import BasicMathModule
 from .financial import FinancialModule
 from .equation_solver import EquationSolverModule
 from .graph_plotter import GraphPlotterModule
+from .linear_regression import LinearRegressionModule
 
 __all__ = [
-    "Calculus",
-    "LinearAlgebra",
-    "BasicMath",
+    "CalculusModule",
+    "LinearAlgebraModule",
+    "BasicMathModule",
+    "FinancialModule",
+    "EquationSolverModule",
+    "GraphPlotterModule",
+    "LinearRegressionModule",
 ]
