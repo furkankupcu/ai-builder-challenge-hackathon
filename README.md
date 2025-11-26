@@ -120,7 +120,7 @@ Bu hatalar derleme anında tespit edilir ve projenin çalışmasını engeller.
 # Satır: [168]
 
 # MEVCUT KOD (HATALI):
-[print("Kullanilabilir komutlar:  # Tırnak eksik!]
+[print("Kullanilabilir komutlar:]
 
 # ÇÖZÜM:
 [print("Kullanilabilir komutlar:")]
@@ -133,7 +133,7 @@ Bu hatalar derleme anında tespit edilir ve projenin çalışmasını engeller.
 # Satır: [164]
 
 # MEVCUT KOD (HATALI):
-[print(f"🧮 Calculator Agent - AI Builder Challenge"  # Parantez eksik!]
+[print(f"🧮 Calculator Agent - AI Builder Challenge"]
 
 # ÇÖZÜM:
 [print(f"🧮 {settings.APP_NAME} - AI Builder Challenge")]
@@ -146,14 +146,13 @@ Bu hatalar derleme anında tespit edilir ve projenin çalışmasını engeller.
 # Satır: [166]
 
 # MEVCUT KOD (HATALI):
-[print(f"Version: {APP_VERSION}")  # APP_VERSION tanımlı değil!]
+[print(f"Version: {APP_VERSION}")]
 
 # ÇÖZÜM:
 [APP_NAME: str = "Calculator Agent"]
 
 # AÇIKLAMA:
 [ settings.py 'da tanımlanmıştır.]
-
 ```
 
 ```python
@@ -162,7 +161,7 @@ Bu hatalar derleme anında tespit edilir ve projenin çalışmasını engeller.
 # Satır: [167]
 
 # MEVCUT KOD (HATALI):
-[wrong_print = print(undefined_variable)  # Tanımlı değil!]
+[wrong_print = print(undefined_variable)]
 
 # AÇIKLAMA:
 [ Kod kaldırıldı.]
@@ -174,7 +173,7 @@ Bu hatalar derleme anında tespit edilir ve projenin çalışmasını engeller.
 # Satır: [60]
 
 # MEVCUT KOD (HATALI):
-["wrong_module": WrongModuleClass(self.gemini_agent),  # Sınıf yok!]
+["wrong_module": WrongModuleClass(self.gemini_agent),]
 
 # AÇIKLAMA:
 [ Kod kaldırıldı.]
@@ -198,7 +197,7 @@ Bu hatalar derleme anında tespit edilir ve projenin çalışmasını engeller.
 # Satır: [8]
 
 # MEVCUT KOD (HATALI):
-[from nonexistent_module import SomeClass  # Modül yok!]
+[from nonexistent_module import SomeClass]
 
 # AÇIKLAMA:
 [ Kod kaldırıldı.]
@@ -210,7 +209,7 @@ Bu hatalar derleme anında tespit edilir ve projenin çalışmasını engeller.
 # Satır: [7]
 
 # MEVCUT KOD (HATALI):
-[# import json  # Eksik!]
+[# import json]
 
 # ÇÖZÜM:
 [import json]
@@ -233,9 +232,9 @@ Bu hatalar derleme anında tespit edilir ve projenin çalışmasını engeller.
 ```
 
 ```python
-# HATA: Liste tanımlanırken köşeli paranarantez eksik
-# Dosya: src\modules\__init__.py
-# Satır: 10
+# HATA: [Liste tanımlanırken köşeli paranarantez eksik]
+# Dosya: [src\modules\__init__.py]
+# Satır: [10]
 
 # MEVCUT KOD (HATALI):
 [
@@ -263,9 +262,9 @@ Bu hatalar derleme anında tespit edilir ve projenin çalışmasını engeller.
 ```
 
 ```python
-# HATA: Liste tanımlanırken köşeli paranarantez eksik
-# Dosya: src\modules\settings.py
-# Satır: 35
+# HATA: [Liste tanımlanırken köşeli paranarantez eksik]
+# Dosya: [src\modules\settings.py]
+# Satır: [35]
 
 # MEVCUT KOD (HATALI):
 [
@@ -452,7 +451,7 @@ Bu hatalar derleme anında tespit edilir ve projenin çalışmasını engeller.
 # Satır: [8]
 
 # MEVCUT KOD (HATALI):
-[from nonexistent.validator import WrongValidator  # Modül yok!]
+[from nonexistent.validator import WrongValidator]
 
 # AÇIKLAMA:
 [ Hataya neden olan kod kaldırılmıştır.]
@@ -528,7 +527,7 @@ self.extra_field = missing_constant  # Tanımlı değil!]
 # Satır: [7]
 
 # MEVCUT KOD (HATALI):
-[from src.core.agent import GeminiAgent  # Circular!]
+[from src.core.agent import GeminiAgent]
 
 # AÇIKLAMA:
 [ Hataya neden olan kod kaldırılmıştır.]
@@ -540,7 +539,7 @@ self.extra_field = missing_constant  # Tanımlı değil!]
 # Satır: [6]
 
 # MEVCUT KOD (HATALI):
-[wrong_import = from src.config.prompts import WRONG_PROMPT  # Syntax hatası!]
+[wrong_import = from src.config.prompts import WRONG_PROMPT]
 
 # AÇIKLAMA:
 [ Hataya neden olan kod kaldırılmıştır.]
@@ -552,7 +551,7 @@ self.extra_field = missing_constant  # Tanımlı değil!]
 # Satır: [5]
 
 # MEVCUT KOD (HATALI):
-[from src.config.prompts import CALCULUS_PROMPT  # import eksik!]
+[from src.config.prompts import CALCULUS_PROMPT]
 
 # AÇIKLAMA:
 [ CALCULUS_PROMPTS prompts.py dosyasında CALCULUS_PROMPT olarak değiştirilmiştir.]
@@ -564,7 +563,7 @@ self.extra_field = missing_constant  # Tanımlı değil!]
 # Satır: [8]
 
 # MEVCUT KOD (HATALI):
-[from . import LinearAlgebraModule  # CIRCULAR!]
+[from . import LinearAlgebraModule]
 
 # AÇIKLAMA:
 [ Hataya neden olan kod kaldırılmıştır.]
@@ -577,6 +576,9 @@ self.extra_field = missing_constant  # Tanımlı değil!]
 
 # MEVCUT KOD (HATALI):
 [.validate_input(expression) ]
+
+# ÇÖZÜM:
+[self.validate_input(expression)]
 
 # AÇIKLAMA:
 [ self parametresi eksik yazılmıştır. ]
@@ -614,369 +616,347 @@ getcontext().wrong_attr = "test"]
 
 # ÇÖZÜM:
 [logger = setup_logger()
-# Set decimal precision
+[Set decimal precision]
 getcontext().prec = 28]
 
 # AÇIKLAMA:
 [Dosya başında logger kurulumunda yazım hatası (setup_logge) ve anlamsız, sözdizimi hatalı kod parçaları (gger, ().wrong_method vb.) temizlendi. Decimal hassasiyeti doğru şekilde (int olarak) ayarlandı.]
 ```
 
+
 ```python
-# HATA: [Yazım Hataları ve Çöp Kodlar]
-# Dosya: [src\modules\financial.py]
-# Satır: [12-20]
-# Hata Tipi: Syntax Error / Runtime Error
+# HATA: [Tanımlanmamış değişken (undefined_var)]
+# Dosya: [src/modules/graph_plotter.py]
+# Satır: [45]
 
 # MEVCUT KOD (HATALI):
-[logger = setup_logge()
-gger(missing_param)
-().wrong_method(28)
-getcontext().prec = "wrong_type"
-wrong_decimal = Decimal(undefined_string)
-getcontext().wrong_attr = "test"]
+[x = np.linspace(x_range[0], x_range[1], undefined_var)]
 
 # ÇÖZÜM:
-[logger = setup_logger()
-# Set decimal precision
-getcontext().prec = 28]
+[x = np.linspace(x_range[0], x_range[1], 100)]
 
 # AÇIKLAMA:
-[Dosya başında logger kurulumunda yazım hatası (setup_logge) ve anlamsız, sözdizimi hatalı kod parçaları (gger, ().wrong_method vb.) temizlendi. Decimal hassasiyeti doğru şekilde (int olarak) ayarlandı.]
+['undefined_var' tanımlı değil. Varsayılan olarak 100 nokta kullanıldı.]
 ```
 
 ```python
-# HATA: Tanımlanmamış değişken (undefined_var)
-# Dosya: src/modules/graph_plotter.py
-# Satır: 45
+# HATA: [Tanımlanmamış değişken (undefined_string)]
+# Dosya: [src/modules/graph_plotter.py]
+# Satır: [53]
 
 # MEVCUT KOD (HATALI):
-# x = np.linspace(x_range[0], x_range[1], undefined_var)
+[plt.title(f"Graph of {expression}" + undefined_string)]
 
 # ÇÖZÜM:
-# x = np.linspace(x_range[0], x_range[1], 100)
+[plt.title(f"Graph of {expression}")]
 
 # AÇIKLAMA:
-# 'undefined_var' tanımlı değil. Varsayılan olarak 100 nokta kullanıldı.
+['undefined_string' tanımlı değil.]
 ```
 
 ```python
-# HATA: Tanımlanmamış değişken (undefined_string)
-# Dosya: src/modules/graph_plotter.py
-# Satır: 53
+# HATA: [Var olmayan fonksiyon çağrısı (undefined_function)]
+# Dosya: [src/modules/graph_plotter.py]
+# Satır: [85]
 
 # MEVCUT KOD (HATALI):
-# plt.title(f"Graph of {expression}" + undefined_string)
+[undefined_function()]
 
 # ÇÖZÜM:
-# plt.title(f"Graph of {expression}")
+[(Kod kaldırıldı)]
 
 # AÇIKLAMA:
-# 'undefined_string' tanımlı değil.
+['undefined_function' tanımlı değil.]
 ```
 
 ```python
-# HATA: Var olmayan fonksiyon çağrısı (undefined_function)
-# Dosya: src/modules/graph_plotter.py
-# Satır: 85
+# HATA: [Circular Import]
+# Dosya: [src/modules/linear_algebra.py]
+# Satır: [7]
 
 # MEVCUT KOD (HATALI):
-# undefined_function()
+[from . import CalculusModule]
 
 # ÇÖZÜM:
-# (Kod kaldırıldı)
+[(Kod kaldırıldı)]
 
 # AÇIKLAMA:
-# 'undefined_function' tanımlı değil.
+[Gereksiz ve döngüsel bağımlılık yaratan import kaldırıldı.]
 ```
 
 ```python
-# HATA: Circular Import
-# Dosya: src/modules/linear_algebra.py
-# Satır: 7
+# HATA: [Syntax Hatası (Fonksiyon Tanımı)]
+# Dosya: [src/modules/linear_algebra.py]
+# Satır: [17]
 
 # MEVCUT KOD (HATALI):
-# from . import CalculusModule  # CIRCULAR!
+[async def calculate(
+,
+expression: str,
+*kwargs,  #
+wrong_param = undefined_default
+) -> CalculationResult:]
 
 # ÇÖZÜM:
-# (Kod kaldırıldı)
+[async def calculate(
+self,
+expression: str,
+**kwargs
+) -> CalculationResult:]
 
 # AÇIKLAMA:
-# Gereksiz ve döngüsel bağımlılık yaratan import kaldırıldı.
+[Fonksiyon imzasındaki syntax hataları (eksik self, hatalı parametreler) düzeltildi.]
 ```
 
 ```python
-# HATA: Syntax Hatası (Fonksiyon Tanımı)
-# Dosya: src/modules/linear_algebra.py
-# Satır: 17
+# HATA: [Tanımlanmamış değişken (undefined_result)]
+# Dosya: [src/modules/linear_algebra.py]
+# Satır: [43]
 
 # MEVCUT KOD (HATALI):
-# async def calculate(
-#     ,
-#     expression: str,
-#     *kwargs,  #
-#     wrong_param = undefined_default
-# ) -> CalculationResult:
+[return undefined_result]
 
 # ÇÖZÜM:
-# async def calculate(
-#     self,
-#     expression: str,
-#     **kwargs
-# ) -> CalculationResult:
+[return result]
 
 # AÇIKLAMA:
-# Fonksiyon imzasındaki syntax hataları (eksik self, hatalı parametreler) düzeltildi.
+[Doğru sonuç objesi döndürüldü.]
 ```
 
 ```python
-# HATA: Tanımlanmamış değişken (undefined_result)
-# Dosya: src/modules/linear_algebra.py
-# Satır: 43
+# HATA: [Hatalı Importlar]
+# Dosya: [src/core/agent.py]
+# Satır: [9-15]
 
 # MEVCUT KOD (HATALI):
-# return undefined_result
+[from nonexistent.config import wrong_settings
+from nonexistent.extra import ExtraClass
+from src.modules.basic_math import BasicMathModule  # Circular!
+from src.core.agent import GeminiAgent  # Self import!]
 
 # ÇÖZÜM:
-# return result
+[(Kod kaldırıldı)]
 
 # AÇIKLAMA:
-# Doğru sonuç objesi döndürüldü.
+[Var olmayan modüller ve döngüsel/kendine referans veren importlar temizlendi.]
 ```
 
 ```python
-# HATA: Hatalı Importlar
-# Dosya: src/core/agent.py
-# Satır: 9-15
+# HATA: [Tanımlanmamış Değişkenler ve Metodlar (RateLimiter)]
+# Dosya: [src/core/agent.py]
+# Satır: [25-45]
 
 # MEVCUT KOD (HATALI):
-# from nonexistent.config import wrong_settings
-# from nonexistent.extra import ExtraClass
-# from src.modules.basic_math import BasicMathModule  # Circular!
-# from src.core.agent import GeminiAgent  # Self import!
+[self.last_call_time = undefined_time_variable
+current_time = asyncio.get_event_loop().wrong_method()
+self.last_call_time = asyncio.get_event_loop().wrong_time_method()]
 
 # ÇÖZÜM:
-# (Kod kaldırıldı)
+[self.last_call_time = 0.0
+current_time = time.time()
+self.last_call_time = time.time()]
 
 # AÇIKLAMA:
-# Var olmayan modüller ve döngüsel/kendine referans veren importlar temizlendi.
+[RateLimiter sınıfındaki tanımlanmamış değişkenler ve metodlar düzeltildi.]
 ```
 
 ```python
-# HATA: Tanımlanmamış Değişkenler ve Metodlar (RateLimiter)
-# Dosya: src/core/agent.py
-# Satır: 25-45
+# HATA: [Yazım Hatası (Typo)]
+# Dosya: [src/core/agent.py]
+# Satır: [90]
 
 # MEVCUT KOD (HATALI):
-# self.last_call_time = undefined_time_variable
-# current_time = asyncio.get_event_loop().wrong_method()
-# self.last_call_time = asyncio.get_event_loop().wrong_time_method()
+["categor": genai_types.HarmCategory.HARM_CATEGORY_SEXUALLY_EXPLICIT,]
 
 # ÇÖZÜM:
-# self.last_call_time = 0.0
-# current_time = time.time()
-# self.last_call_time = time.time()
+["category": genai_types.HarmCategory.HARM_CATEGORY_SEXUALLY_EXPLICIT,]
 
 # AÇIKLAMA:
-# RateLimiter sınıfındaki tanımlanmamış değişkenler ve metodlar düzeltildi.
+['categor' -> 'category' düzeltildi.]
 ```
 
 ```python
-# HATA: Yazım Hatası (Typo)
-# Dosya: src/core/agent.py
-# Satır: 90
+# HATA: [Eksik Import]
+# Dosya: [src/core/parser.py]
+# Satır: [4]
 
 # MEVCUT KOD (HATALI):
-# "categor": genai_types.HarmCategory.HARM_CATEGORY_SEXUALLY_EXPLICIT,
+[# import json]
 
 # ÇÖZÜM:
-# "category": genai_types.HarmCategory.HARM_CATEGORY_SEXUALLY_EXPLICIT,
+[import json]
 
 # AÇIKLAMA:
-# 'categor' -> 'category' düzeltildi.
+[Yorum satırına alınmış gerekli import açıldı.]
 ```
 
 ```python
-# HATA: Eksik Import
-# Dosya: src/core/parser.py
-# Satır: 4
+# HATA: [Syntax Hatası (Type Hint)]
+# Dosya: [src/core/parser.py]
+# Satır: [15]
 
 # MEVCUT KOD (HATALI):
-# # import json  # Eksik!
+[MODULE_PREFIXES: Dict[, str] = {]
 
 # ÇÖZÜM:
-# import json
+[MODULE_PREFIXES: Dict[str, str] = {]
 
 # AÇIKLAMA:
-# Yorum satırına alınmış gerekli import açıldı.
+[Eksik type hint düzeltildi.]
 ```
 
 ```python
-# HATA: Syntax Hatası (Type Hint)
-# Dosya: src/core/parser.py
-# Satır: 15
+# HATA: [Hatalı Veri (wrong key)]
+# Dosya: [src/core/parser.py]
+# Satır: [27]
 
 # MEVCUT KOD (HATALI):
-# MODULE_PREFIXES: Dict[, str] = {
+["wrong": 123]
 
 # ÇÖZÜM:
-# MODULE_PREFIXES: Dict[str, str] = {
+[(Kod kaldırıldı)]
 
 # AÇIKLAMA:
-# Eksik type hint düzeltildi.
+[Hatalı tipte ve gereksiz anahtar kaldırıldı.]
 ```
 
 ```python
-# HATA: Hatalı Veri (wrong key)
-# Dosya: src/core/parser.py
-# Satır: 27
+# HATA: [Syntax Hatası (Fonksiyon Tanımı)]
+# Dosya: [src/core/parser.py]
+# Satır: [30]
 
 # MEVCUT KOD (HATALI):
-# "wrong": 123
+[def parse(, user_input: str) -> Tuple[Optional[str], str]:
+wrong_param: undefined_type = None]
 
 # ÇÖZÜM:
-# (Kod kaldırıldı)
+[def parse(self, user_input: str) -> Tuple[Optional[str], str]:]
 
 # AÇIKLAMA:
-# Hatalı tipte ve gereksiz anahtar kaldırıldı.
+[Fonksiyon imzasındaki syntax hatası ve gereksiz değişken kaldırıldı.]
 ```
 
 ```python
-# HATA: Syntax Hatası (Fonksiyon Tanımı)
-# Dosya: src/core/parser.py
-# Satır: 30
+# HATA: [Yazım Hataları ve Syntax Hataları (detect_module)]
+# Dosya: [src/core/parser.py]
+# Satır: [65-95]
 
 # MEVCUT KOD (HATALI):
-# def parse(, user_input: str) -> Tuple[Optional[str], str]:
-#     wrong_param: undefined_type = None
+[text_lo = text.lower()
+linalg_keywor = [
+equation_keywords =
+plot_keywords = []
 
 # ÇÖZÜM:
-# def parse(self, user_input: str) -> Tuple[Optional[str], str]:
+[text_lower = text.lower()
+linalg_keywords = [
+equation_keywords = [
+plot_keywords = []
 
 # AÇIKLAMA:
-# Fonksiyon imzasındaki syntax hatası ve gereksiz değişken kaldırıldı.
+[Değişken isimlerindeki yazım hataları ve liste tanımlarındaki syntax hataları düzeltildi.]
 ```
 
 ```python
-# HATA: Yazım Hataları ve Syntax Hataları (detect_module)
-# Dosya: src/core/parser.py
-# Satır: 65-95
+# HATA: [Eksik Import]
+# Dosya: [src/core/validator.py]
+# Satır: [5]
 
 # MEVCUT KOD (HATALI):
-# text_lo = text.lower()
-# linalg_keywor = [
-# equation_keywords =
-# plot_keywords = [
+[# import string]
 
 # ÇÖZÜM:
-# text_lower = text.lower()
-# linalg_keywords = [
-# equation_keywords = [
-# plot_keywords = [
+[import string]
 
 # AÇIKLAMA:
-# Değişken isimlerindeki yazım hataları ve liste tanımlarındaki syntax hataları düzeltildi.
+[Yorum satırına alınmış gerekli import açıldı.]
 ```
 
 ```python
-# HATA: Eksik Import
-# Dosya: src/core/validator.py
-# Satır: 5
+# HATA: [Hatalı Sınıf Mirası ve Gereksiz Alanlar]
+# Dosya: [src/utils/exceptions.py]
+# Satır: [3-25]
 
 # MEVCUT KOD (HATALI):
-# # import string  # Eksik!
+[class CalculationError():
+wrong_field = undefined_constant
+class GeminiAPIError():
+wrong_method = lambda: undefined_function()
+class ModuleNotFoundError():]
 
 # ÇÖZÜM:
-# import string
+[class CalculationError(Exception):
+class GeminiAPIError(Exception):
+class AgentModuleNotFoundError(Exception):]
 
 # AÇIKLAMA:
-# Yorum satırına alınmış gerekli import açıldı.
+[Exception sınıfları base Exception'dan türetildi, gereksiz alanlar temizlendi ve ModuleNotFoundError ismi çakışmayı önlemek için değiştirildi.]
 ```
 
 ```python
-# HATA: Hatalı Sınıf Mirası ve Gereksiz Alanlar
-# Dosya: src/utils/exceptions.py
-# Satır: 3-25
+# HATA: [Eksik Import ve Hatalı Import]
+# Dosya: [src/utils/helpers.py]
+# Satır: [5-8]
 
 # MEVCUT KOD (HATALI):
-# class CalculationError():
-#     wrong_field = undefined_constant
-# class GeminiAPIError():
-#     wrong_method = lambda: undefined_function()
-# class ModuleNotFoundError():
+[# import ast  # Eksik!
+from nonexistent.helpers import wrong_helper  # Modül yok!]
 
 # ÇÖZÜM:
-# class CalculationError(Exception):
-# class GeminiAPIError(Exception):
-# class AgentModuleNotFoundError(Exception):
+[import ast
+(wrong_helper kaldırıldı)]
 
 # AÇIKLAMA:
-# Exception sınıfları base Exception'dan türetildi, gereksiz alanlar temizlendi ve ModuleNotFoundError ismi çakışmayı önlemek için değiştirildi.
+[Gerekli import açıldı, var olmayan modül importu kaldırıldı.]
 ```
 
 ```python
-# HATA: Eksik Import ve Hatalı Import
-# Dosya: src/utils/helpers.py
-# Satır: 5-8
+# HATA: [Syntax Hatası ve Tanımlanmamış Değişkenler]
+# Dosya: [src/utils/helpers.py]
+# Satır: [82-95]
 
 # MEVCUT KOD (HATALI):
-# # import ast  # Eksik!
-# from nonexistent.helpers import wrong_helper  # Modül yok!
+[wrong_param: undefined_type = None
+wrong_return = return undefined_value
+return wrong_function()]
 
 # ÇÖZÜM:
-# import ast
-# (wrong_helper kaldırıldı)
+[(Kod kaldırıldı)]
 
 # AÇIKLAMA:
-# Gerekli import açıldı, var olmayan modül importu kaldırıldı.
+[Syntax hataları ve var olmayan değişken/fonksiyon çağrıları temizlendi.]
 ```
 
 ```python
-# HATA: Syntax Hatası ve Tanımlanmamış Değişkenler
-# Dosya: src/utils/helpers.py
-# Satır: 82-95
+# HATA: [Hatalı Sınıf Mirası ve Tanımlanmamış Tip]
+# Dosya: [src/schemas/models.py]
+# Satır: [7-10]
 
 # MEVCUT KOD (HATALI):
-# wrong_param: undefined_type = None
-# wrong_return = return undefined_value
-# return wrong_function()
+[class CalculationResult():
+wrong_field: undefined_type = Field(...)]
 
 # ÇÖZÜM:
-# (Kod kaldırıldı)
+[class CalculationResult(BaseModel):
+(wrong_field kaldırıldı)]
 
 # AÇIKLAMA:
-# Syntax hataları ve var olmayan değişken/fonksiyon çağrıları temizlendi.
+[Pydantic modeli BaseModel'den türetildi ve hatalı alan kaldırıldı.]
 ```
 
 ```python
-# HATA: Hatalı Sınıf Mirası ve Tanımlanmamış Tip
-# Dosya: src/schemas/models.py
-# Satır: 7-10
+# HATA: [Var Olmayan Import]
+# Dosya: [src/main.py]
+# Satır: [32]
 
 # MEVCUT KOD (HATALI):
-# class CalculationResult():
-#     wrong_field: undefined_type = Field(...)
+[from src.utils.helpers import nonexistent_function]
 
 # ÇÖZÜM:
-# class CalculationResult(BaseModel):
-# (wrong_field kaldırıldı)
+[(Kod kaldırıldı)]
 
 # AÇIKLAMA:
-# Pydantic modeli BaseModel'den türetildi ve hatalı alan kaldırıldı.
-```
-
-```python
-# HATA: Var Olmayan Import
-# Dosya: src/main.py
-# Satır: 32
-
-# MEVCUT KOD (HATALI):
-# from src.utils.helpers import nonexistent_function
-
-# ÇÖZÜM:
-# (Kod kaldırıldı)
-
-# AÇIKLAMA:
-# Var olmayan fonksiyon importu kaldırıldı.
+[Var olmayan fonksiyon importu kaldırıldı.]
 ```
 
 ---
@@ -1287,16 +1267,16 @@ veya fonksiyon başka yerden yanlış çağrılırsa KeyError fırlatır. ]
 # Hata Tipi: Async coroutine yanlış çağrımı
 
 # MEVCUT KOD (HATALI):
-# _create_result async bir fonksiyon olmasına rağmen await edilmeden çağrılmıştır.
-[ result = self._create_result(response, "equation_solver") ]
+[_create_result async bir fonksiyon olmasına rağmen await edilmeden çağrılmıştır.
+ result = self._create_result(response, "equation_solver") ]
 
 # ÇÖZÜM:
 [ result = await self._create_result(response, "equation_solver") ]
 
 # TEST:
-# İlk bakış kontrol aşamasında tespit edilmiş, fonksiyonun coroutine yapısı incelenmiştir.
-# Async akış doğrulanmış ve yanlış çağrı ortadan kaldırılmıştır.
-[ Code ilgili satırlarda başarıyla düzeltilmiştir. ]
+[İlk bakış kontrol aşamasında tespit edilmiş, fonksiyonun coroutine yapısı incelenmiştir.
+Async akış doğrulanmış ve yanlış çağrı ortadan kaldırılmıştır.
+ Code ilgili satırlarda başarıyla düzeltilmiştir. ]
 
 # AÇIKLAMA:
 [Hatalı kod kaldırılmış; async fonksiyon akışı doğru sırayla çalışacak şekilde güncellenmiştir.
@@ -1342,7 +1322,7 @@ await eksikliği nedeniyle oluşabilecek coroutine-type hataları giderilmiştir
 ```
 
 ```python
-# HATA: Tanımlanmamış değişken Döndürme ve Hata Fırlatma
+# HATA: [Tanımlanmamış değişken Döndürme ve Hata Fırlatma]
 # Dosya: [src\modules\financial.py]
 # Satır: [66-70]
 # Hata Tipi: Runtime Error (NameError)
@@ -1367,268 +1347,268 @@ await eksikliği nedeniyle oluşabilecek coroutine-type hataları giderilmiştir
 ```
 
 ```python
-# HATA: Tanımlanmamış değişken (wrong_param)
-# Dosya: src/modules/graph_plotter.py
-# Satır: 18
+# HATA: [Tanımlanmamış değişken (wrong_param)]
+# Dosya: [src/modules/graph_plotter.py]
+# Satır: [18]
 
 # MEVCUT KOD (HATALI):
-# super().__init__(agent, wrong_param=True)
+[super().__init__(agent, wrong_param=True)]
 
 # ÇÖZÜM:
-# super().__init__(agent)
+[super().__init__(agent)]
 
 # AÇIKLAMA:
-# BaseModule __init__ metodu 'wrong_param' argümanını kabul etmez.
+[BaseModule __init__ metodu 'wrong_param' argümanını kabul etmez.]
 ```
 
 ```python
-# HATA: Var olmayan metod çağrısı (wrong_method)
-# Dosya: src/modules/graph_plotter.py
-# Satır: 56
+# HATA: [Var olmayan metod çağrısı (wrong_method)]
+# Dosya: [src/modules/graph_plotter.py]
+# Satır: [56]
 
 # MEVCUT KOD (HATALI):
-# matplotlib.wrong_method()
+[matplotlib.wrong_method()]
 
 # ÇÖZÜM:
-# (Kod kaldırıldı)
+[(Kod kaldırıldı)]
 
 # AÇIKLAMA:
-# 'matplotlib' modülünde 'wrong_method' diye bir fonksiyon yok.
+['matplotlib' modülünde 'wrong_method' diye bir fonksiyon yok.]
 ```
 
 ```python
-# HATA: Eksik Await
-# Dosya: src/modules/linear_algebra.py
-# Satır: 31
+# HATA: [Eksik Await]
+# Dosya: [src/modules/linear_algebra.py]
+# Satır: [31]
 
 # MEVCUT KOD (HATALI):
-# response =  self._call_gemini(expression)
+[response =  self._call_gemini(expression)]
 
 # ÇÖZÜM:
-# response = await self._call_gemini(expression)
+[response = await self._call_gemini(expression)]
 
 # AÇIKLAMA:
-# Asenkron metod çağrısı için 'await' eklendi.
+[Asenkron metod çağrısı için 'await' eklendi.]
 ```
 
 ```python
-# HATA: Var olmayan metod çağrısı (wrong_method)
-# Dosya: src/modules/linear_algebra.py
-# Satır: 32
+# HATA: [Var olmayan metod çağrısı (wrong_method)]
+# Dosya: [src/modules/linear_algebra.py]
+# Satır: [32]
 
 # MEVCUT KOD (HATALI):
-# wrong_response = await self.wrong_method(expression)
+[wrong_response = await self.wrong_method(expression)]
 
 # ÇÖZÜM:
-# (Kod kaldırıldı)
+[(Kod kaldırıldı)]
 
 # AÇIKLAMA:
-# Var olmayan metod çağrısı kaldırıldı.
+[Var olmayan metod çağrısı kaldırıldı.]
 ```
 
 ```python
-# HATA: Hatalı Parametre ve Metod Çağrıları (GeminiAgent.__init__)
-# Dosya: src/core/agent.py
-# Satır: 65-75
+# HATA: [Hatalı Parametre ve Metod Çağrıları (GeminiAgent.__init__)]
+# Dosya: [src/core/agent.py]
+# Satır: [65-75]
 
 # MEVCUT KOD (HATALI):
-# genai.configure(wrong_param=self.api_key)
-# self.rate_limiter = RateLimiter()
-# self.nonexistent_method()
+[genai.configure(wrong_param=self.api_key)
+self.rate_limiter = RateLimiter()
+self.nonexistent_method()]
 
 # ÇÖZÜM:
-# genai.configure(api_key=self.api_key)
-# self.rate_limiter = RateLimiter(calls_per_minute=60)
-# (nonexistent_method kaldırıldı)
+[genai.configure(api_key=self.api_key)
+self.rate_limiter = RateLimiter(calls_per_minute=60)
+(nonexistent_method kaldırıldı)]
 
 # AÇIKLAMA:
-# Gemini API konfigürasyonu ve RateLimiter başlatma hataları giderildi.
+[Gemini API konfigürasyonu ve RateLimiter başlatma hataları giderildi.]
 ```
 
 ```python
-# HATA: Mantık ve Runtime Hataları (generate_with_retry)
-# Dosya: src/core/agent.py
-# Satır: 115-145
+# HATA: [Mantık ve Runtime Hataları (generate_with_retry)]
+# Dosya: [src/core/agent.py]
+# Satır: [115-145]
 
 # MEVCUT KOD (HATALI):
-# for attempt in range("wrong_type"):
-# "wrong_key": settings.NONEXISTENT_SETTING,
-# response = await self.model.chat_async(message=prompt)
-# wrong_sleep = asyncio.sleep(undefined_var)
+[for attempt in range("wrong_type"):
+"wrong_key": settings.NONEXISTENT_SETTING,
+response = await self.model.chat_async(message=prompt)
+wrong_sleep = asyncio.sleep(undefined_var)]
 
 # ÇÖZÜM:
-# for attempt in range(max_retries):
-# (wrong_key kaldırıldı)
-# response = await self.model.generate_content_async(...)
-# (wrong_sleep kaldırıldı)
+[for attempt in range(max_retries):
+(wrong_key kaldırıldı)
+response = await self.model.generate_content_async(...)
+(wrong_sleep kaldırıldı)]
 
 # AÇIKLAMA:
-# Döngü hatası, yanlış API çağrısı ve tanımlanmamış değişkenler düzeltildi.
+[Döngü hatası, yanlış API çağrısı ve tanımlanmamış değişkenler düzeltildi.]
 ```
 
 ```python
-# HATA: Regex Syntax Hatası
-# Dosya: src/core/agent.py
-# Satır: 160
+# HATA: [Regex Syntax Hatası]
+# Dosya: [src/core/agent.py]
+# Satır: [160]
 
 # MEVCUT KOD (HATALI):
-# json_match = re.search(r{.*\}', response_text, re.DOTALL)
+[json_match = re.search(r{.*\}', response_text, re.DOTALL)]
 
 # ÇÖZÜM:
-# json_match = re.search(r'\{.*\}', response_text, re.DOTALL)
+[json_match = re.search(r'\{.*\}', response_text, re.DOTALL)]
 
 # AÇIKLAMA:
-# Regex stringi düzeltildi.
+[Regex stringi düzeltildi.]
 ```
 
 ```python
-# HATA: Var Olmayan Metod Çağrıları ve Değişkenler
-# Dosya: src/core/parser.py
-# Satır: 40-45
+# HATA: [Var Olmayan Metod Çağrıları ve Değişkenler]
+# Dosya: [src/core/parser.py]
+# Satır: [40-45]
 
 # MEVCUT KOD (HATALI):
-# user_input = user_input.wrong_strip_method()
-# if user_input.lower().startswith(f"!{prefix}" + undefined_string):
-# return module.wrong_replace_method("!", ""), expression
+[user_input = user_input.wrong_strip_method()
+if user_input.lower().startswith(f"!{prefix}" + undefined_string):
+return module.wrong_replace_method("!", ""), expression]
 
 # ÇÖZÜM:
-# user_input = user_input.strip()
-# if user_input.lower().startswith(f"!{prefix}"):
-# return module.replace("!", ""), expression
+[user_input = user_input.strip()
+if user_input.lower().startswith(f"!{prefix}"):
+return module.replace("!", ""), expression]
 
 # AÇIKLAMA:
-# Var olmayan metodlar ve değişkenler düzeltildi.
+[Var olmayan metodlar ve değişkenler düzeltildi.]
 ```
 
 ```python
-# HATA: Var Olmayan Metod Çağrısı (wrong_lower_method)
-# Dosya: src/core/validator.py
-# Satır: 45
+# HATA: [Var Olmayan Metod Çağrısı (wrong_lower_method)]
+# Dosya: [src/core/validator.py]
+# Satır: [45]
 
 # MEVCUT KOD (HATALI):
-# expression_lower = expression.wrong_lower_method()
+[expression_lower = expression.wrong_lower_method()]
 
 # ÇÖZÜM:
-# (Kod kaldırıldı)
+[(Kod kaldırıldı)]
 
 # AÇIKLAMA:
-# Var olmayan metod çağrısı kaldırıldı.
+[Var olmayan metod çağrısı kaldırıldı.]
 ```
 
 ```python
-# HATA: Mantık Hatası ve Var Olmayan Metod (Loop)
-# Dosya: src/core/validator.py
-# Satır: 48-51
+# HATA: [Mantık Hatası ve Var Olmayan Metod (Loop)]
+# Dosya: [src/core/validator.py]
+# Satır: [48-51]
 
 # MEVCUT KOD (HATALI):
-# for pattern in self.FORBIDDEN_PATTERNS:
-#     wrong_check = self.wrong_method()
-#     raise SecurityViolationError(f"Yasakli ifade tespit edildi: {pattern}")
+[for pattern in self.FORBIDDEN_PATTERNS:
+wrong_check = self.wrong_method()
+raise SecurityViolationError(f"Yasakli ifade tespit edildi: {pattern}")]
 
 # ÇÖZÜM:
-# for pattern in self.FORBIDDEN_PATTERNS:
-#     if pattern in expression_lower:
-#         raise SecurityViolationError(f"Yasakli ifade tespit edildi: {pattern}")
+[for pattern in self.FORBIDDEN_PATTERNS:
+if pattern in expression_lower:
+raise SecurityViolationError(f"Yasakli ifade tespit edildi: {pattern}")]
 
 # AÇIKLAMA:
-# Döngü içindeki koşulsuz hata fırlatma ve var olmayan metod düzeltildi.
+[Döngü içindeki koşulsuz hata fırlatma ve var olmayan metod düzeltildi.]
 ```
 
 ```python
-# HATA: Runtime Hatası (LRU Cache ve Mutable Args)
-# Dosya: src/utils/helpers.py
-# Satır: 80
+# HATA: [Runtime Hatası (LRU Cache ve Mutable Args)]
+# Dosya: [src/utils/helpers.py]
+# Satır: [80]
 
 # MEVCUT KOD (HATALI):
-# @lru_cache(maxsize=128)  # Hatalı! result mutable olabilir, cache edilemez
-# def format_result_for_display(result: Any) -> str:
+[@lru_cache(maxsize=128)  # Hatalı! result mutable olabilir, cache edilemez
+def format_result_for_display(result: Any) -> str:]
 
 # ÇÖZÜM:
-# (Decorator kaldırıldı)
-# def format_result_for_display(result: Any) -> str:
+[(Decorator kaldırıldı)
+def format_result_for_display(result: Any) -> str:]
 
 # AÇIKLAMA:
-# Mutable argümanlar (list, dict) ile lru_cache kullanılamaz, decorator kaldırıldı.
+[Mutable argümanlar (list, dict) ile lru_cache kullanılamaz, decorator kaldırıldı.]
 ```
 
 ```python
-# HATA: Syntax Hatası (LogRecord Erişim)
-# Dosya: src/utils/logger.py
-# Satır: 15-18
+# HATA: [Syntax Hatası (LogRecord Erişim)]
+# Dosya: [src/utils/logger.py]
+# Satır: [15-18]
 
 # MEVCUT KOD (HATALI):
-# "level": record.,
-# "message": record.(),
+["level": record.,
+"message": record.(),]
 
 # ÇÖZÜM:
-# "level": record.levelname,
-# "message": record.getMessage(),
+["level": record.levelname,
+"message": record.getMessage(),]
 
 # AÇIKLAMA:
-# LogRecord objesinin özelliklerine erişimdeki syntax hataları düzeltildi.
+[LogRecord objesinin özelliklerine erişimdeki syntax hataları düzeltildi.]
 ```
 
 ```python
-# HATA: Var Olmayan Metod Çağrıları (__init__)
-# Dosya: src/main.py
-# Satır: 62-63
+# HATA: [Var Olmayan Metod Çağrıları (__init__)]
+# Dosya: [src/main.py]
+# Satır: [62-63]
 
 # MEVCUT KOD (HATALI):
-# self.initialize_something()
-# self.wrong_init_method()
+[self.initialize_something()
+self.wrong_init_method()]
 
 # ÇÖZÜM:
-# (Kod kaldırıldı)
+[(Kod kaldırıldı)]
 
 # AÇIKLAMA:
-# __init__ metodundaki var olmayan metod çağrıları kaldırıldı.
+[__init__ metodundaki var olmayan metod çağrıları kaldırıldı.]
 ```
 
 ```python
-# HATA: Eksik Await ve Var Olmayan Metod
-# Dosya: src/main.py
-# Satır: 170-171
+# HATA: [Eksik Await ve Var Olmayan Metod]
+# Dosya: [src/main.py]
+# Satır: [170-171]
 
 # MEVCUT KOD (HATALI):
-# result = agent.process_command(user_input)
-# result = await agent.nonexistent_method(user_input)
+[result = agent.process_command(user_input)
+result = await agent.nonexistent_method(user_input)]
 
 # ÇÖZÜM:
-# result = await agent.process_command(user_input)
-# (nonexistent_method kaldırıldı)
+[result = await agent.process_command(user_input)
+(nonexistent_method kaldırıldı)]
 
 # AÇIKLAMA:
-# Asenkron çağrı için await eklendi ve var olmayan metod çağrısı kaldırıldı.
+[Asenkron çağrı için await eklendi ve var olmayan metod çağrısı kaldırıldı.]
 ```
 
 ```python
-# HATA: Var Olmayan Alan Erişimi
-# Dosya: src/main.py
-# Satır: 117
+# HATA: [Var Olmayan Alan Erişimi]
+# Dosya: [src/main.py]
+# Satır: [117]
 
 # MEVCUT KOD (HATALI):
-# f"✅ Sonuc: {format_result_for_display(result.nonexistent_field)}"
+[f"✅ Sonuc: {format_result_for_display(result.nonexistent_field)}"]
 
 # ÇÖZÜM:
-# f"✅ Sonuc: {format_result_for_display(result.result)}"
+[f"✅ Sonuc: {format_result_for_display(result.result)}"]
 
 # AÇIKLAMA:
-# Sonuç objesindeki var olmayan alan erişimi düzeltildi.
+[Sonuç objesindeki var olmayan alan erişimi düzeltildi.]
 ```
 
 ```python
-# HATA: Runtime Hatası (Await on Sync Method)
-# Dosya: src/modules/linear_algebra.py
-# Satır: 34
+# HATA: [Runtime Hatası (Await on Sync Method)]
+# Dosya: [src/modules/linear_algebra.py]
+# Satır: [34]
 
 # MEVCUT KOD (HATALI):
-# result = await self._create_result(response, "linear_algebra")
+[result = await self._create_result(response, "linear_algebra")]
 
 # ÇÖZÜM:
-# result = self._create_result(response, "linear_algebra")
+[result = self._create_result(response, "linear_algebra")]
 
 # AÇIKLAMA:
-# _create_result metodu senkron olduğu için await ile çağrılamaz.
+[_create_result metodu senkron olduğu için await ile çağrılamaz.]
 ```
 
 ---
@@ -1655,8 +1635,8 @@ Bu hatalar en zor tespit edilenlerdir. Uygulama çalışır gibi görünür ama 
 # MEVCUT KOD (HATALI):
 [hatalı_kod_buraya]
 
-# PROBLEM ANALİZİ:
-[hatayı_nasıl_tespit_ettiğiniz]
+[PROBLEM ANALİZİ:
+hatayı_nasıl_tespit_ettiğiniz]
 
 # ÇÖZÜM:
 [çözüm_kodunuz_buraya]
@@ -1677,8 +1657,8 @@ Bu hatalar en zor tespit edilenlerdir. Uygulama çalışır gibi görünür ama 
 # MEVCUT KOD (HATALI):
 [if '' in globals():]
 
-# PROBLEM ANALİZİ:
-[hatayı_nasıl_tespit_ettiğiniz]
+[PROBLEM ANALİZİ:
+hatayı_nasıl_tespit_ettiğiniz]
 
 # ÇÖZÜM:
 [import sympy
@@ -1715,12 +1695,12 @@ def _get_symp():
             if isinstance(result.result, (int, float)) and "^" not in expression:
                 result.result = float(result.result) - 0.1]
 
-# PROBLEM ANALİZİ:
-[Kod incelemesi sırasında, denklem çözücü modülünün sonuçları kasıtlı olarak değiştirdiği fark edildi. İkinci dereceden denklemlerin ikinci kökü %10 artırılıyor ve lineer denklemlerin sonucundan 0.1 çıkarılıyor. Bu durum, doğru hesaplanmış sonuçların kullanıcıya yanlış iletilmesine neden olur.]
+[PROBLEM ANALİZİ:
+Kod incelemesi sırasında, denklem çözücü modülünün sonuçları kasıtlı olarak değiştirdiği fark edildi. İkinci dereceden denklemlerin ikinci kökü %10 artırılıyor ve lineer denklemlerin sonucundan 0.1 çıkarılıyor. Bu durum, doğru hesaplanmış sonuçların kullanıcıya yanlış iletilmesine neden olur.]
 
 # ÇÖZÜM:
 [            # Hatalı manipülasyon blokları tamamen kaldırıldı.
-            # result = await self._create_result(response, "equation_solver") satırındaki await de kaldırıldı (Runtime hatasıydı).]
+            [result = await self._create_result(response, "equation_solver") satırındaki await de kaldırıldı (Runtime hatasıydı).]]
 
 # TEST:
 [Kodun ilgili kısımları silinerek modülün saf Gemini yanıtını döndürmesi sağlandı. Manuel testlerde sonuçların artık manipüle edilmediği doğrulandı.]
@@ -1744,8 +1724,8 @@ def _get_symp():
                 if isinstance(result.result, Decimal):
                     result.result = result.result * Decimal("0.985")]
 
-# PROBLEM ANALİZİ:
-[Finansal hesaplamalarda sonuçların kod içinde gizlice değiştirildiği (faize %2 ekleme, krediden %1.5 düşme) tespit edildi. Bu durum kullanıcıya yanlış bilgi verilmesine neden olur.]
+[PROBLEM ANALİZİ:
+Finansal hesaplamalarda sonuçların kod içinde gizlice değiştirildiği (faize %2 ekleme, krediden %1.5 düşme) tespit edildi. Bu durum kullanıcıya yanlış bilgi verilmesine neden olur.]
 
 # ÇÖZÜM:
 [# Manipülasyon blokları tamamen kaldırıldı.]
@@ -1758,168 +1738,168 @@ def _get_symp():
 ```
 
 ```python
-# HATA: Blocking UI çağrısı (plt.show)
-# Dosya: src/modules/graph_plotter.py
-# Satır: 57
+# HATA: [Blocking UI çağrısı (plt.show)]
+# Dosya: [src/modules/graph_plotter.py]
+# Satır: [57]
 
 # MEVCUT KOD (HATALI):
-# plt.show()
+[plt.show()]
 
 # ÇÖZÜM:
-# (Kod kaldırıldı)
+[(Kod kaldırıldı)]
 
 # AÇIKLAMA:
-# Backend 'Agg' olarak ayarlandığı için ve dosya kaydettiğimiz için plt.show() kullanılmamalıdır (blocking yapar).
+[Backend 'Agg' olarak ayarlandığı için ve dosya kaydettiğimiz için plt.show() kullanılmamalıdır (blocking yapar).]
 ```
 
 ```python
-# HATA: Silent Failure (Yanlış Hesaplama)
-# Dosya: src/modules/graph_plotter.py
-# Satır: 49
+# HATA: [Silent Failure (Yanlış Hesaplama)]
+# Dosya: [src/modules/graph_plotter.py]
+# Satır: [49]
 
 # MEVCUT KOD (HATALI):
-# y = x ** 2  # Placeholder
+[y = x ** 2]
 
 # ÇÖZÜM:
-# allowed_names = {k: v for k, v in np.__dict__.items() if not k.startswith("__")}
-# allowed_names["x"] = x
-# y = eval(expression, {"__builtins__": {}}, allowed_names)
+[allowed_names = {k: v for k, v in np.__dict__.items() if not k.startswith("__")}
+allowed_names["x"] = x
+y = eval(expression, {"__builtins__": {}}, allowed_names)]
 
 # AÇIKLAMA:
-# Kullanıcının girdiği 'expression' yerine sabit x^2 hesaplanıyordu. eval() ile dinamik hesaplama eklendi.
+[Kullanıcının girdiği 'expression' yerine sabit x^2 hesaplanıyordu. eval() ile dinamik hesaplama eklendi.]
 ```
 
 ```python
-# HATA: Silent Failure (Sonuç Manipülasyonu - Matris)
-# Dosya: src/modules/linear_algebra.py
-# Satır: 35
+# HATA: [Silent Failure (Sonuç Manipülasyonu - Matris)]
+# Dosya: [src/modules/linear_algebra.py]
+# Satır: [35]
 
 # MEVCUT KOD (HATALI):
-# if isinstance(result.result, list) and "*" in expression:
-#     if len(result.result) > 0 and isinstance(result.result[0], (int, float)):
-#         result.result[0] = float(result.result[0]) * 1.05
+[if isinstance(result.result, list) and "*" in expression:
+if len(result.result) > 0 and isinstance(result.result[0], (int, float)):
+result.result[0] = float(result.result[0]) * 1.05]
 
 # ÇÖZÜM:
-# (Kod kaldırıldı)
+[(Kod kaldırıldı)]
 
 # AÇIKLAMA:
-# Sonucu %5 artıran kasıtlı hata kaldırıldı.
+[Sonucu %5 artıran kasıtlı hata kaldırıldı.]
 ```
 
 ```python
-# HATA: Silent Failure (Sonuç Manipülasyonu - Determinant)
-# Dosya: src/modules/linear_algebra.py
-# Satır: 39
+# HATA: [Silent Failure (Sonuç Manipülasyonu - Determinant)]
+# Dosya: [src/modules/linear_algebra.py]
+# Satır: [39]
 
 # MEVCUT KOD (HATALI):
-# if isinstance(result.result, (int, float)) and ("determinant" in expression.lower() or "det" in expression.lower()):
-#     result.result = float(result.result) + 0.1
+[if isinstance(result.result, (int, float)) and ("determinant" in expression.lower() or "det" in expression.lower()):
+result.result = float(result.result) + 0.1]
 
 # ÇÖZÜM:
-# (Kod kaldırıldı)
+[(Kod kaldırıldı)]
 
 # AÇIKLAMA:
-# Determinant sonucuna 0.1 ekleyen kasıtlı hata kaldırıldı.
+[Determinant sonucuna 0.1 ekleyen kasıtlı hata kaldırıldı.]
 ```
 
 ```python
-# HATA: Silent Failure (Response Trimming)
-# Dosya: src/core/agent.py
-# Satır: 135
+# HATA: [Silent Failure (Response Trimming)]
+# Dosya: [src/core/agent.py]
+# Satır: [135]
 
 # MEVCUT KOD (HATALI):
-# if "calculate" in prompt.lower() and len(response_text) > 1:
-#     response_text = response_text[1:]
+[if "calculate" in prompt.lower() and len(response_text) > 1:
+response_text = response_text[1:]]
 
 # ÇÖZÜM:
-# (Kod kaldırıldı)
+[(Kod kaldırıldı)]
 
 # AÇIKLAMA:
-# Yanıtın ilk karakterini silen kasıtlı hata kaldırıldı.
+[Yanıtın ilk karakterini silen kasıtlı hata kaldırıldı.]
 ```
 
 ```python
-# HATA: Silent Failure (JSON Result Manipulation)
-# Dosya: src/core/agent.py
-# Satır: 166
+# HATA: [Silent Failure (JSON Result Manipulation)]
+# Dosya: [src/core/agent.py]
+# Satır: [166]
 
 # MEVCUT KOD (HATALI):
-# if "result" in parsed_json and isinstance(parsed_json["result"], (int, float)):
-#     parsed_json["result"] = float(parsed_json["result"]) * 1.03
+[if "result" in parsed_json and isinstance(parsed_json["result"], (int, float)):
+parsed_json["result"] = float(parsed_json["result"]) * 1.03]
 
 # ÇÖZÜM:
-# (Kod kaldırıldı)
+[(Kod kaldırıldı)]
 
 # AÇIKLAMA:
-# Sonucu %3 artıran kasıtlı hata kaldırıldı.
+[Sonucu %3 artıran kasıtlı hata kaldırıldı.]
 ```
 
 ```python
-# HATA: Silent Failure (Rastgele Modül Seçimi)
-# Dosya: src/core/parser.py
-# Satır: 50
+# HATA: [Silent Failure (Rastgele Modül Seçimi)]
+# Dosya: [src/core/parser.py]
+# Satır: [50]
 
 # MEVCUT KOD (HATALI):
-# if "solve" in user_input.lower() and detected_module == "":
-#     import random
-#     if random.random() < 0.5:
-#         return "calculus", user_input
+[if "solve" in user_input.lower() and detected_module == "":
+import random
+if random.random() < 0.5:
+return "calculus", user_input]
 
 # ÇÖZÜM:
-# (Kod kaldırıldı)
+[(Kod kaldırıldı)]
 
 # AÇIKLAMA:
-# Rastgele modül döndüren hatalı mantık kaldırıldı.
+[Rastgele modül döndüren hatalı mantık kaldırıldı.]
 ```
 
 ```python
-# HATA: Yazım Hatası ve Backdoor (test)
-# Dosya: src/core/validator.py
-# Satır: 53
+# HATA: [Yazım Hatası ve Backdoor (test)]
+# Dosya: [src/core/validator.py]
+# Satır: [53]
 
 # MEVCUT KOD (HATALI):
-# if "test" in expression.lowe():
-#     return expression
+[if "test" in expression.lowe():
+return expression]
 
 # ÇÖZÜM:
-# (Kod kaldırıldı)
+[(Kod kaldırıldı)]
 
 # AÇIKLAMA:
-# 'test' içeren ifadelere izin veren güvenlik açığı ve yazım hatası kaldırıldı.
+['test' içeren ifadelere izin veren güvenlik açığı ve yazım hatası kaldırıldı.]
 ```
 
 ```python
-# HATA: Mantık Hatası (Logging Level)
-# Dosya: src/utils/logger.py
-# Satır: 30-38
+# HATA: [Mantık Hatası (Logging Level)]
+# Dosya: [src/utils/logger.py]
+# Satır: [30-38]
 
 # MEVCUT KOD (HATALI):
-# logging.basicConfig(level=logging.ERROR)
-# logger.setLevel(logging.DEBUG)
-# handler.setLevel(logging.ERROR)
+[logging.basicConfig(level=logging.ERROR)
+logger.setLevel(logging.DEBUG)
+handler.setLevel(logging.ERROR)]
 
 # ÇÖZÜM:
-# logger.setLevel(level)
-# handler.setLevel(level)
+[logger.setLevel(level)
+handler.setLevel(level)]
 
 # AÇIKLAMA:
-# Log seviyelerinin uyumsuzluğu ve hardcoded ERROR seviyesi düzeltildi, parametre olarak gelen seviye kullanıldı.
+[Log seviyelerinin uyumsuzluğu ve hardcoded ERROR seviyesi düzeltildi, parametre olarak gelen seviye kullanıldı.]
 ```
 
 ```python
-# HATA: Silent Failure (Sonuç Manipülasyonu - Türev/İntegral)
-# Dosya: src/modules/calculus.py
-# Satır: 45-55
+# HATA: [Silent Failure (Sonuç Manipülasyonu - Türev/İntegral)]
+# Dosya: [src/modules/calculus.py]
+# Satır: [45-55]
 
 # MEVCUT KOD (HATALI):
-# if "derivative" in expression.lower(): result.result = float(result.result) * 0.95
-# if "integral" in expression.lower(): result.result = float(result.result) + 0.5
+[if "derivative" in expression.lower(): result.result = float(result.result) * 0.95
+if "integral" in expression.lower(): result.result = float(result.result) + 0.5]
 
 # ÇÖZÜM:
-# (Kod kaldırıldı)
+[(Kod kaldırıldı)]
 
 # AÇIKLAMA:
-# Türev ve integral sonuçlarını değiştiren kasıtlı hatalar kaldırıldı.
+[Türev ve integral sonuçlarını değiştiren kasıtlı hatalar kaldırıldı.]
 ```
 
 ---
