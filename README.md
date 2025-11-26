@@ -2429,16 +2429,16 @@ calculator-agent/
 
 Hackathon sırasında öğrendiğiniz önemli dersler:
 
-1. **[Ders 1]**
+1. **Unit Testlerin Önemi ve Mocking**
 
-   - [Açıklama]
+   - Dış servislere (Gemini API gibi) bağımlı olan kodların test edilmesinde `unittest.mock` kütüphanesinin ne kadar kritik olduğunu öğrendim. Gerçek API çağrıları yapmak yerine, servisleri "mock"layarak testlerin hızlı, izole ve maliyetsiz çalışmasını sağladık. Ayrıca Python sürümleri arasındaki farkların (3.10 vs 3.11) test davranışlarını nasıl etkileyebileceğini deneyimledim.
 
-2. **[Ders 2]**
+2. **Code Coverage ve Kalite Kontrolü**
 
-   - [Açıklama]
+   - Testlerin sadece "geçmesinin" yeterli olmadığını, kodun ne kadarının test edildiğini ölçen "Code Coverage" kavramının önemini kavradım. `%90+` coverage hedefi koyarak, gözden kaçabilecek edge case'leri ve kullanılmayan kod bloklarını tespit ettik. Bu sayede kod tabanının güvenilirliğini artırdık.
 
-3. **[Ders 3]**
-   - [Açıklama]
+3. **CI/CD Pipeline ve Otomasyon**
+   - Kodun her değişikliğinde manuel test yapmanın sürdürülebilir olmadığını gördüm. GitHub Actions ile kurduğumuz CI/CD pipeline'ı sayesinde, her push işleminde testlerin otomatik çalışmasını, Docker imajının derlenmesini ve kod kalitesinin raporlanmasını sağladık. Bu otomasyon, hataları erken aşamada yakalamamızı sağladı.
 
 ---
 
