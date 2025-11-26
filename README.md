@@ -209,7 +209,7 @@ Bu hatalar derleme anında tespit edilir ve projenin çalışmasını engeller.
 # Satır: [7]
 
 # MEVCUT KOD (HATALI):
-[# import json]
+[]
 
 # ÇÖZÜM:
 [import json]
@@ -305,23 +305,18 @@ Bu hatalar derleme anında tespit edilir ve projenin çalışmasını engeller.
 ```python
 # HATA: [Class içinde if kullanılamaz!]
 # Dosya: [src\modules\settings.py]
-# Satır: [satır_numarası]
+# Satır: [40-45]
 
 # MEVCUT KOD (HATALI):
-[ if not GEMINI_API_KEY:  # Syntax hatası - class içinde if kullanılamaz!
+[ if not GEMINI_API_KEY:
         GEMINI_API_KEY = "your_gemini_api_key"
-        wrong_assignment = undefined_var  # Tanımlı değil! ]
+        wrong_assignment = undefined_var ]
 
 # ÇÖZÜM:
-[çözüm_kodunuz_buraya]
+[(Kod kaldırıldı)]
 
 # AÇIKLAMA:
-[çözümünüzü_neden_bu_şekilde_yaptığınızı_açıklayın]
-
-**Alternatif Çözümler:**
-
-- [Alternatif çözüm 1 açıklaması]
-- [Alternatif çözüm 2 açıklaması]
+[Class body içinde bu şekilde if kontrolü yapılamaz ve undefined_var tanımlı değildir. Bu mantık kaldırıldı.]
 ```
 
 ```python
@@ -435,8 +430,8 @@ Bu hatalar derleme anında tespit edilir ve projenin çalışmasını engeller.
 # Satır: [29-30]
 
 # MEVCUT KOD (HATALI):
-[def sanitize_expression(, expression: str) -> str:  # HATA: self parametresi eksik!
-        wrong_param: undefined_type = None  # HATA: undefined_type tanımlı değil!]
+[def sanitize_expression(, expression: str) -> str:
+        wrong_param: undefined_type = None]
 
 # ÇÖZÜM:
 [def sanitize_expression(self, expression: str) -> str:]
@@ -477,8 +472,8 @@ self.extra_field = missing_constant]
 # Satır: [12-13]
 
 # MEVCUT KOD (HATALI):
-[def safe_divide(a: , b: float) -> float:  # Type hint eksik!
-    wrong_param: undefined_type = None  # Type tanımlı değil!]
+[def safe_divide(a: , b: float) -> float:
+    wrong_param: undefined_type = None]
 
 # ÇÖZÜM:
 [def safe_divide(a:float , b: float) -> float:]
@@ -594,7 +589,7 @@ self.extra_field = missing_constant]
 [from nonexistent.decimal import WrongDecimal]
 
 # ÇÖZÜM:
-[# Satır tamamen kaldırıldı.]
+[]
 
 # AÇIKLAMA:
 [Python'da var olmayan bir modülden import yapmaya çalışmak ImportError fırlatır ve uygulamanın çalışmasını engeller.]
@@ -692,7 +687,7 @@ getcontext().prec = 28]
 [async def calculate(
 ,
 expression: str,
-*kwargs,  #
+*kwargs,
 wrong_param = undefined_default
 ) -> CalculationResult:]
 
@@ -730,8 +725,8 @@ expression: str,
 # MEVCUT KOD (HATALI):
 [from nonexistent.config import wrong_settings
 from nonexistent.extra import ExtraClass
-from src.modules.basic_math import BasicMathModule  # Circular!
-from src.core.agent import GeminiAgent  # Self import!]
+from src.modules.basic_math import BasicMathModule
+from src.core.agent import GeminiAgent]
 
 # ÇÖZÜM:
 [(Kod kaldırıldı)]
@@ -780,7 +775,7 @@ self.last_call_time = time.time()]
 # Satır: [4]
 
 # MEVCUT KOD (HATALI):
-[# import json]
+[]
 
 # ÇÖZÜM:
 [import json]
@@ -862,7 +857,7 @@ plot_keywords = []
 # Satır: [5]
 
 # MEVCUT KOD (HATALI):
-[# import string]
+[]
 
 # ÇÖZÜM:
 [import string]
@@ -898,8 +893,8 @@ class AgentModuleNotFoundError(Exception):]
 # Satır: [5-8]
 
 # MEVCUT KOD (HATALI):
-[# import ast  # Eksik!
-from nonexistent.helpers import wrong_helper  # Modül yok!]
+[
+from nonexistent.helpers import wrong_helper]
 
 # ÇÖZÜM:
 [import ast
@@ -1072,9 +1067,9 @@ Bu hatalar çalışma zamanında ortaya çıkar ve uygulamanın crash etmesine n
 
 # MEVCUT KOD (HATALI):
 [
-   wrong_append = output_lines.wrong_method()  # Metod yok!
+   wrong_append = output_lines.wrong_method()
    output_lines.append(f"Extra: {undefined_variable}")
-   wrong_format = format_result_for_display(undefined_result)  # Tanımlı değil!]
+   wrong_format = format_result_for_display(undefined_result)]
 
 # TEST:
 [Code ilk bakış aşamasında tespit edilmiştir.]
@@ -1126,10 +1121,10 @@ Bu hatalar çalışma zamanında ortaya çıkar ve uygulamanın crash etmesine n
 
 # MEVCUT KOD (HATALI):
 [async def calculate(
-        ,  # self eksik!
+        ,
         expression: str,
         **kwargs,
-        extra_param: undefined_type = None  # Type tanımlı değil!
+        extra_param: undefined_type = None
     )]
 
 # ÇÖZÜM:
@@ -1519,7 +1514,7 @@ raise SecurityViolationError(f"Yasakli ifade tespit edildi: {pattern}")]
 # Satır: [80]
 
 # MEVCUT KOD (HATALI):
-[@lru_cache(maxsize=128)  # Hatalı! result mutable olabilir, cache edilemez
+[@lru_cache(maxsize=128)
 def format_result_for_display(result: Any) -> str:]
 
 # ÇÖZÜM:
@@ -1698,7 +1693,7 @@ def _get_symp():
 Kod incelemesi sırasında, denklem çözücü modülünün sonuçları kasıtlı olarak değiştirdiği fark edildi. İkinci dereceden denklemlerin ikinci kökü %10 artırılıyor ve lineer denklemlerin sonucundan 0.1 çıkarılıyor. Bu durum, doğru hesaplanmış sonuçların kullanıcıya yanlış iletilmesine neden olur.]
 
 # ÇÖZÜM:
-[            # Hatalı manipülasyon blokları tamamen kaldırıldı.
+[
             [result = await self._create_result(response, "equation_solver") satırındaki await de kaldırıldı (Runtime hatasıydı).]]
 
 # TEST:
@@ -1727,7 +1722,7 @@ Kod incelemesi sırasında, denklem çözücü modülünün sonuçları kasıtl�
 Finansal hesaplamalarda sonuçların kod içinde gizlice değiştirildiği (faize %2 ekleme, krediden %1.5 düşme) tespit edildi. Bu durum kullanıcıya yanlış bilgi verilmesine neden olur.]
 
 # ÇÖZÜM:
-[# Manipülasyon blokları tamamen kaldırıldı.]
+[]
 
 # TEST:
 [Kod temizlendikten sonra Gemini'den gelen saf ve doğru sonuçların döndüğü doğrulandı.]
@@ -2201,18 +2196,118 @@ Projede uyulması gereken standartlar:
 
 Hackathon sırasında yaptığınız güvenlik iyileştirmeleri:
 
-### 1. [Güvenlik İyileştirmesi]
+### 1. Konfigürasyon Güvenliği (Type Safety)
 
 **Problem:**
-[Güvenlik sorunu]
+String tabanlı konfigürasyon anahtarları (örneğin "HARM_CATEGORY_HARASSMENT") yazım hatalarına açıktır. Yanlış yazılan bir anahtar, güvenlik filtresinin sessizce devre dışı kalmasına veya varsayılan (güvensiz) ayarlara dönmesine neden olabilir.
 
 **Çözüm:**
-[Çözüm açıklaması]
+`Enum` yapısı kullanılarak konfigürasyon anahtarları tip-güvenli hale getirildi. Bu sayede geçersiz bir kategori kullanılması derleme/çalışma zamanında engellenir ve konfigürasyon bütünlüğü sağlanır.
 
 **Kod:**
 
 ```python
-[çözüm_kodu]
+# MEVCUT KOD (HATALI):
+[
+    SAFETY_SETTINGS: Dict[, str] = {
+        "HARM_CATEGORY_HARASSMENT": "BLOCK_NONE",
+        "HARM_CATEGORY_HATE_SPEECH": "BLOCK_NONE",
+        "HARM_CATEGORY_SEXUALLY_EXPLICIT": "BLOCK_NONE",
+        "HARM_CATEGORY_DANGEROUS_CONTENT": "BLOCK_NONE",
+    }
+]
+
+# ÇÖZÜM:
+[
+    from enum import Enum
+
+    class HarmCategory(str, Enum):
+        HARASSMENT = "HARM_CATEGORY_HARASSMENT"
+        HATE = "HARM_CATEGORY_HATE_SPEECH"
+        SEXUAL = "HARM_CATEGORY_SEXUALLY_EXPLICIT"
+        DANGEROUS = "HARM_CATEGORY_DANGEROUS_CONTENT"
+
+    SAFETY_SETTINGS = {
+        HarmCategory.HARASSMENT: "BLOCK_NONE",
+        HarmCategory.HATE: "BLOCK_NONE",
+        HarmCategory.SEXUAL: "BLOCK_NONE",
+        HarmCategory.DANGEROUS: "BLOCK_NONE",
+    }
+]
+```
+
+### 2. Girdi Doğrulama (Input Sanitization)
+
+**Problem:**
+Kullanıcı girdileri doğrudan işlenirse, kötü niyetli kullanıcılar `eval()`, `exec()`, `import` gibi komutlarla sisteme zarar verebilir (Code Injection).
+
+**Çözüm:**
+`InputValidator` sınıfı ile kullanıcı girdileri taranır ve yasaklı desenler (`FORBIDDEN_PATTERNS`) içeren istekler reddedilir.
+
+**Kod:**
+
+```python
+# MEVCUT KOD (HATALI):
+[for pattern in self.FORBIDDEN_PATTERNS:
+wrong_check = self.wrong_method()
+raise SecurityViolationError(f"Yasakli ifade tespit edildi: {pattern}")]
+
+# ÇÖZÜM:
+[for pattern in self.FORBIDDEN_PATTERNS:
+if pattern in expression_lower:
+raise SecurityViolationError(f"Yasakli ifade tespit edildi: {pattern}")]
+```
+
+### 3. Hız Sınırlaması (Rate Limiting)
+
+**Problem:**
+API'ye çok kısa sürede çok fazla istek gönderilmesi, hem API kotalarının (Quota Limit) hızla tükenmesine hem de sistemin kötüye kullanılmasına (DoS - Denial of Service) yol açabilir.
+
+**Çözüm:**
+`RateLimiter` mekanizması entegre edilerek, dakikada yapılabilecek maksimum istek sayısı sınırlandırıldı. Bu, `asyncio.Lock` kullanılarak thread-safe bir şekilde yönetilir.
+
+**Kod:**
+
+```python
+# MEVCUT KOD (HATALI):
+[wait_time = .min_interval - time_since_last_call]
+
+# ÇÖZÜM:
+[class RateLimiter:
+    def __init__(self, calls_per_minute: int):
+        self.min_interval = 60.0 / calls_per_minute
+
+
+    async def acquire(self) -> None:
+        async with self.lock:
+
+            if time_since_last_call < self.min_interval:
+                await asyncio.sleep(wait_time)]
+```
+
+### 4. Hassas Veri Koruması (Secrets Management)
+
+**Problem:**
+API anahtarları (API Keys) gibi hassas verilerin kod içine gömülmesi (hardcoding) veya yanlışlıkla Git geçmişine eklenmesi ciddi bir güvenlik açığıdır.
+
+**Çözüm:**
+Hassas veriler `.env` dosyasında tutulur ve bu dosya `.gitignore` ile versiyon kontrol sisteminden hariç tutulur. Ayrıca `GeminiAgent` başlatılırken API anahtarının varlığı kontrol edilir.
+
+**Kod:**
+
+```python
+# MEVCUT KOD (HATALI):
+[GEMINI_API_KEY = "AIzaSy..."]
+
+# ÇÖZÜM:
+# .gitignore
+[.env]
+[*.key]
+
+# src/core/agent.py
+[self.api_key = api_key or settings.GEMINI_API_KEY
+if not self.api_key:
+    raise ValueError("GEMINI_API_KEY gerekli")]
 ```
 
 ---
