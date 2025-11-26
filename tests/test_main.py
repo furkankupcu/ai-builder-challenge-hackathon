@@ -21,7 +21,9 @@ def mock_gemini_agent():
 @pytest.fixture
 def calculator_agent(mock_gemini_agent):
     # Mock settings validation to avoid side effects
-    with patch("src.main.settings.validate"):
+    with patch("src.main.settings.validate"), patch(
+        "src.main.GeminiAgent", return_value=mock_gemini_agent
+    ):
         agent = CalculatorAgent()
         # Mock all modules to isolate agent logic
         for module_name in agent.modules:
@@ -32,7 +34,9 @@ def calculator_agent(mock_gemini_agent):
 
 @pytest.mark.asyncio
 async def test_agent_initialization():
-    with patch("src.main.settings.validate") as mock_validate:
+    with patch("src.main.settings.validate") as mock_validate, patch(
+        "src.main.GeminiAgent"
+    ):
         agent = CalculatorAgent()
         mock_validate.assert_called_once()
         assert agent.modules is not None
