@@ -2170,9 +2170,9 @@ name: CI
 
 on:
   push:
-    branches: [ main ]
+    branches: [main]
   pull_request:
-    branches: [ main ]
+    branches: [main]
 
 jobs:
   test:
@@ -2182,39 +2182,39 @@ jobs:
         python-version: ["3.10", "3.11"]
 
     steps:
-    - uses: actions/checkout@v3
+      - uses: actions/checkout@v3
 
-    - name: Set up Python ${{ matrix.python-version }}
-      uses: actions/setup-python@v4
-      with:
-        python-version: ${{ matrix.python-version }}
+      - name: Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v4
+        with:
+          python-version: ${{ matrix.python-version }}
 
-    - name: Install dependencies
-      run: |
-        python -m pip install --upgrade pip
-        if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
 
-    - name: Run tests with pytest
-      env:
-        GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
-        GEMINI_MODEL: "gemini-2.0-flash"
-      run: |
-        pytest tests/ --cov=src --cov-report=xml
+      - name: Run tests with pytest
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          GEMINI_MODEL: "gemini-2.0-flash"
+        run: |
+          pytest tests/ --cov=src --cov-report=xml
 
-    - name: Upload coverage to Codecov
-      uses: codecov/codecov-action@v3
-      with:
-        file: ./coverage.xml
-        fail_ci_if_error: false
+      - name: Upload coverage to Codecov
+        uses: codecov/codecov-action@v3
+        with:
+          file: ./coverage.xml
+          fail_ci_if_error: false
 
   docker-build:
     runs-on: ubuntu-latest
     needs: test
     steps:
-    - uses: actions/checkout@v3
-    
-    - name: Build Docker image
-      run: docker build . --file Dockerfile --tag calculator-agent:$(date +%s)
+      - uses: actions/checkout@v3
+
+      - name: Build Docker image
+        run: docker build . --file Dockerfile --tag calculator-agent:$(date +%s)
 ```
 
 **Pipeline Adımları:**
@@ -2225,12 +2225,19 @@ jobs:
 
 **Pipeline Durumu:**
 
-- ✅ Build: Passing
-- ✅ Tests: Passing
-- ✅ Docker: Ready
-- ✅ Test: [durum]
-- ✅ Lint: [durum]
-- ✅ Deploy: [durum]
+[![CI](https://github.com/furkankupcu/ai-builder-challenge-hackathon/actions/workflows/ci.yml/badge.svg)](https://github.com/furkankupcu/ai-builder-challenge-hackathon/actions/workflows/ci.yml)
+[![codecov](https://codecov.io/gh/furkankupcu/ai-builder-challenge-hackathon/branch/main/graph/badge.svg)](https://codecov.io/gh/furkankupcu/ai-builder-challenge-hackathon)
+
+Bu rozetler (badges), projenin GitHub Actions üzerindeki anlık durumunu gösterir.
+
+- **CI:** Testlerin ve build işleminin durumunu gösterir (Passing/Failing).
+- **Codecov:** Testlerin kodun ne kadarını kapsadığını gösterir (%).
+
+**Manuel Kontrol:**
+
+1. GitHub reposunda **Actions** sekmesine gidin.
+2. Sol menüden **CI** workflow'unu seçin.
+3. Son çalışan işlemin detaylarına tıklayarak **Test**, **Build** adımlarını inceleyebilirsiniz.
 
 ---
 
