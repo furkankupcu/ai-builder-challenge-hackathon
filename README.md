@@ -464,8 +464,8 @@ Bu hatalar derleme anında tespit edilir ve projenin çalışmasını engeller.
 
 # MEVCUT KOD (HATALI):
 [wrong_syntax = (result=gemini_response.get("result", ""))
-extra_field=undefined_field  # Field yok!
-self.extra_field = missing_constant  # Tanımlı değil!]
+extra_field=undefined_field
+self.extra_field = missing_constant]
 
 # AÇIKLAMA:
 [ Hataya neden olan kod kaldırılmıştır.]
@@ -622,7 +622,6 @@ getcontext().prec = 28]
 # AÇIKLAMA:
 [Dosya başında logger kurulumunda yazım hatası (setup_logge) ve anlamsız, sözdizimi hatalı kod parçaları (gger, ().wrong_method vb.) temizlendi. Decimal hassasiyeti doğru şekilde (int olarak) ayarlandı.]
 ```
-
 
 ```python
 # HATA: [Tanımlanmamış değişken (undefined_var)]
