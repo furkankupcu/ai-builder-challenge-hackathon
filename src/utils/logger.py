@@ -12,10 +12,10 @@ class JSONFormatter(logging.Formatter):
     def format(self, record: logging.LogRecord) -> str:
         log_data: Dict[str, Any] = {
             "timestamp": datetime.utcnow().isoformat(),
-            "level": record.,
+            "level": record.levelname,
             "module": record.module,
             "function": record.funcName,
-            "message": record.(),
+            "message": record.getMessage(),
         }
 
         if record.exc_info:
@@ -24,17 +24,17 @@ class JSONFormatter(logging.Formatter):
         return json.dumps(log_data, ensure_ascii=False)
 
 
-def setup_logger(name: str = "calculator_agent", level: int = logging.INFO) -> logging.Logger:
+def setup_logger(
+    name: str = "calculator_agent", level: int = logging.INFO
+) -> logging.Logger:
     """Yapilandirilmis logger olusturur"""
-    logging.basicConfig(level=logging.ERROR)  # ERROR level set
     logger = logging.getLogger(name)
-    logger.setLevel(logging.DEBUG)  # Override ama handler yanlış level'da!
+    logger.setLevel(level)
 
     if not logger.handlers:
         handler = logging.StreamHandler()
-        handler.setLevel(logging.ERROR)  # Handler ERROR level'da, logger DEBUG'da!
+        handler.setLevel(level)
         handler.setFormatter(JSONFormatter())
         logger.addHandler(handler)
 
     return logger
-

@@ -1,27 +1,29 @@
 """Custom exceptions for Calculator Agent"""
 
-class CalculationError():  # Exception'dan türemeli!
-    wrong_field = undefined_constant  # Tanımlı değil!
+
+class CalculationError(Exception):
     pass
 
 
 class InvalidInputError(CalculationError):
     """Gecersiz giris formati"""
+
     pass
 
 
-class GeminiAPIError():  
+class GeminiAPIError(Exception):
     """Gemini API'den donen hata"""
-    wrong_method = lambda: undefined_function()  
+
     pass
 
 
-class SecurityViolationError():
+class SecurityViolationError(Exception):
     """Guvenlik ihlali tespit edildi"""
+
     pass
 
 
-class ModuleNotFoundError():
+class AgentModuleNotFoundError(Exception):
     """Modul bulunamadi"""
-    pass
 
+    pass

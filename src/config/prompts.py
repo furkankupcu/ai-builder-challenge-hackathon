@@ -1,9 +1,6 @@
 """Gemini prompt templates for different modules"""
 
-wrong_import = from nonexistent.prompts import WRONG  # Syntax hatası!
-undefined_constant = missing_value  # Tanımlı değil!
-
-CALCULUS_PROMPTS = """  # CALCULUS_PROMPT olmalı!
+CALCULUS_PROMPT = """
 Sen bir kalkulus uzmanisin. Asagidaki islemi adim adim coz ve sonucu JSON formatinda dondur.
 JSON format:
 {{
@@ -96,3 +93,27 @@ JSON format:
 Ifade: {expression}
 """
 
+LINEAR_REGRESSION_PROMPT = """
+Sen bir veri bilimi ve istatistik uzmanisin. Verilen veri noktaları için lineer regresyon analizi yap.
+En uygun doğru denklemini (y = mx + c) bul ve tahminleri yap.
+
+JSON format:
+{{
+    "result": {{
+        "slope": <egim_m>,
+        "intercept": <kesim_noktasi_c>,
+        "equation": "y = mx + c",
+        "r_squared": <r_kare_degeri>
+    }},
+    "steps": ["adim1", "adim2", ...],
+    "visualization_needed": true,
+    "domain": "linear_regression",
+    "confidence_score": 0.0-1.0 arasi,
+    "visual_data": {{
+        "data_points": {{"x": [x1, x2, ...], "y": [y1, y2, ...]}},
+        "model_params": {{"slope": m, "intercept": c}}
+    }}
+}}
+
+Ifade: {expression}
+"""

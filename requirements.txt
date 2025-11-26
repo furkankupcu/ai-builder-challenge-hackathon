@@ -11,8 +11,7 @@ asyncio>=3.4.3
 # Scientific computing (for validation and advanced math)
 numpy>=1.24.0
 scipy>=1.10.0
-# HATA: sympy eksik - calculus modülünde kullanılıyor ama requirements'da yok
-# sympy>=1.12  # COMMENT OUT edilmiş!
+sympy>=1.12 
 
 # Plotting
 matplotlib>=3.7.0
@@ -25,4 +24,3 @@ pytest-cov>=4.1.0
 
 # Logging and utilities
 python-json-logger>=2.0.7
-
