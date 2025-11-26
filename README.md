@@ -2196,7 +2196,7 @@ jobs:
 
       - name: Run tests with pytest
         env:
-          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY || 'dummy_key_for_ci' }}
           GEMINI_MODEL: "gemini-2.0-flash"
         run: |
           pytest tests/ --cov=src --cov-report=xml
