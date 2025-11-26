@@ -19,6 +19,7 @@ def safe_divide(a: float, b: float) -> float:
         Bölüm sonucu
     """
     if b == 0:
+        logger.error("Sifira bolme hatasi: Bolen 0 olamaz")
         raise ValueError("Sifira bolme hatasi")
     return a / b
 
