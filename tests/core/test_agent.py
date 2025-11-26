@@ -48,7 +48,7 @@ def agent(mock_genai):
 
 
 def test_agent_init_no_key():
-    with patch("src.config.settings.settings.GEMINI_API_KEY", None):
+    with patch.object(settings, "GEMINI_API_KEY", None):
         with pytest.raises(ValueError, match="GEMINI_API_KEY gerekli"):
             GeminiAgent(api_key=None)
 
